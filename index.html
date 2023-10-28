@@ -3,13 +3,18 @@
 <head>
 	<meta name="generator" content="Hugo 0.118.2">
   <head>
-    
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
     <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F8KTHDP9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-4F8KTHDP9M');
+    </script>
     
     
     
@@ -28,42 +33,6 @@
     
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
 
-    <script>
-
-        document.getElementById('quoteSearch').addEventListener('input', function (e) {
-            var term = e.target.value.toLowerCase();
-            var quotes = document.querySelectorAll('.quote'); 
-            quotes.forEach(function (quote) {
-                var text = quote.textContent.toLowerCase();
-                if (text.indexOf(term) != -1) {
-                    quote.style.display = '';
-                    
-                } else {
-                    quote.style.display = 'none';
-                }
-            });
-
-            var searchTerm = document.getElementById('quoteSearch').value; 
-            var quotesContainer = document.getElementById("quotesContainer"); 
-
-            
-            var markInstance = new Mark(quotesContainer);
-
-            
-            markInstance.unmark({
-                done: function () {
-                    
-                    
-                    markInstance.mark(searchTerm, {
-                        separateWordSearch: false, 
-                        accuracy: "exactly", 
-                        element: "span", 
-                        className: "highlight", 
-                    });
-                }
-            });
-        });
-    </script>
 
     <style>
          
