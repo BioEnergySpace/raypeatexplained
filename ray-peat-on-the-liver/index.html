@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on the liver</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,56 +119,77 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nutritional Deficits&#39; Impact on Neurological Imbalances</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The imbalances of endorphins, serotonin, catecholamines, and other nerve-regulators that have been seen in autism sometimes can be produced in adults by combined fatigue and poor nutrition, and when the livers glycogen is depleted, it can be hard to restore the balance. Prenatal influences of different types could damage connectivity, which permitting cells to survive. Normally, a large proportion of brain cells die before birth, because of limited availability of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nutritional Deficits&#39; Impact on Neurological Imbalances</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The imbalances of endorphins, serotonin, catecholamines, and other nerve-regulators that have been seen in autism sometimes can be produced in adults by combined fatigue and poor nutrition, and when the livers glycogen is depleted, it can be hard to restore the balance. Prenatal influences of different types could damage connectivity, which permitting cells to survive. Normally, a large proportion of brain cells die before birth, because of limited availability of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cortisol Responds to Low Glycogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When there isn’t enough stored glycogen in the liver, muscles, and other tissues, to provide the brain’s nocturnal glucose requirement, cortisol rises, breaking down tissue proteins to provide amino acids and glucose, but free fatty acids are also increased by this nocturnal stress."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cortisol Responds to Low Glycogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When there isn’t enough stored glycogen in the liver, muscles, and other tissues, to provide the brain’s nocturnal glucose requirement, cortisol rises, breaking down tissue proteins to provide amino acids and glucose, but free fatty acids are also increased by this nocturnal stress."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Blood and Liver&#39;s Buffering Role in Nutrient Transport</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The blood and the liver act as a buffer between the intestine and the various specialized tissues and organs, with the serum albumin having a major function in binding and transporting a variety of nutrients and potential toxins."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Blood and Liver&#39;s Buffering Role in Nutrient Transport</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The blood and the liver act as a buffer between the intestine and the various specialized tissues and organs, with the serum albumin having a major function in binding and transporting a variety of nutrients and potential toxins."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -124,7 +204,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

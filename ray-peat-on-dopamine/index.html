@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on dopamine</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,38 +119,53 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Exploring Sensory Experience Modification in Parkinson&#39;s Therapy</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Without knowing the basic causes of Parkinson’s disease (and it isn’t very helpful to keep hearing that it’s caused by the death of dopaminergic cells in the substantial nigra), we don’t know how much can be achieved by way of modifying sensory experience, but if we consider the powerful biological effects of learned helpless, and the simplicity with which it can be alleviated, we can imagine that the therapeutic possibilities in that direction might be great."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Exploring Sensory Experience Modification in Parkinson&#39;s Therapy</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Without knowing the basic causes of Parkinson’s disease (and it isn’t very helpful to keep hearing that it’s caused by the death of dopaminergic cells in the substantial nigra), we don’t know how much can be achieved by way of modifying sensory experience, but if we consider the powerful biological effects of learned helpless, and the simplicity with which it can be alleviated, we can imagine that the therapeutic possibilities in that direction might be great."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Dopamine&#39;s Role in Toxin Production within Substantia Nigra</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The high local concentration of dopamine in the substantial negra, reacting with iron, produces a variety of toxins"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Dopamine&#39;s Role in Toxin Production within Substantia Nigra</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The high local concentration of dopamine in the substantial negra, reacting with iron, produces a variety of toxins"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -106,7 +180,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on progesterone</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,317 +119,425 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Personal Experience: Progesterone and DHEA Affect on Melanomas</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"I had some probable melanomas years ago, and I found that progesterone and DHEA and increased thyroid caused them to disappear quickly."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Personal Experience: Progesterone and DHEA Affect on Melanomas</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"I had some probable melanomas years ago, and I found that progesterone and DHEA and increased thyroid caused them to disappear quickly."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Potential Anticancer Properties Underexplored</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone has a wide spectrum of anticancer activity, but as far as I know only synthetic progestins have been used medically. Although I used myself it on things that appeared to be very active melanomas, I usually recommend a slightly hyperthyroid state for helping to control it."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Potential Anticancer Properties Underexplored</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone has a wide spectrum of anticancer activity, but as far as I know only synthetic progestins have been used medically. Although I used myself it on things that appeared to be very active melanomas, I usually recommend a slightly hyperthyroid state for helping to control it."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Defense Mechanisms Against Nitric Oxide: The Nutritional Angle</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the most important anti-nitric oxide defenses are progesterone, vitamin E, vitamin K, vitamin A, niacinamide, coffee, aspirin, and foods containing flavonoids, terpenoids, polyphenols, and sterols. Grass-fed milk contains a variety of polyphenols. Citrus fruits, many tropical fruits (e.g., guavas, longans, and lychees), and cooked mushrooms are good sources of apigenin, naringenin and related chemicals."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Defense Mechanisms Against Nitric Oxide: The Nutritional Angle</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the most important anti-nitric oxide defenses are progesterone, vitamin E, vitamin K, vitamin A, niacinamide, coffee, aspirin, and foods containing flavonoids, terpenoids, polyphenols, and sterols. Grass-fed milk contains a variety of polyphenols. Citrus fruits, many tropical fruits (e.g., guavas, longans, and lychees), and cooked mushrooms are good sources of apigenin, naringenin and related chemicals."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Protective Substances Against Impaired Glucose Oxidation Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Other substances that protect against the effects of hypoglycemia or impaired glucose oxidation include progesterone, caffeine, certain anesthetics including xenon, niacinamide, agmatine, carbon dioxide,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Protective Substances Against Impaired Glucose Oxidation Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Other substances that protect against the effects of hypoglycemia or impaired glucose oxidation include progesterone, caffeine, certain anesthetics including xenon, niacinamide, agmatine, carbon dioxide,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Antagonism Towards Other Steroid Hormones</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone’s effects are antagonistic to the effects of the other major steroid hormones, especially estrogen, cortisol, and aldosterone. Those hormones interfere with energy metabolism, specifically with the oxidation of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Antagonism Towards Other Steroid Hormones</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone’s effects are antagonistic to the effects of the other major steroid hormones, especially estrogen, cortisol, and aldosterone. Those hormones interfere with energy metabolism, specifically with the oxidation of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolism&#39;s Influence on Time Perception and Behavior</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he experience of time governs the way we behave, and our metabolism governs the way we experience time. Progesterone, as a central neurosteroid, is a crucial part of our metabolism that shapes our consciousness as it projects itself into time"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolism&#39;s Influence on Time Perception and Behavior</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he experience of time governs the way we behave, and our metabolism governs the way we experience time. Progesterone, as a central neurosteroid, is a crucial part of our metabolism that shapes our consciousness as it projects itself into time"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Protective Roles of Progesterone During High-Energy States</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during constructive exploration, energy is abundant, and cells with the highest energy needs are protected by progesterone, testosterone, DHEA, and other steroids."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Protective Roles of Progesterone During High-Energy States</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during constructive exploration, energy is abundant, and cells with the highest energy needs are protected by progesterone, testosterone, DHEA, and other steroids."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Stabilizes Cells, Enhances Metabolic Functions</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Besides directly stabilizing the internal structures of the cell, progesterone increases the ATP concentration and oxygen consumption, decreases excitatory systems and numerous inflammation-related processes, decreases intracellular calcium concentration, and increases the use of glucose, leading to increased carbon dioxide production, as well as adjusting breathing and pH."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Stabilizes Cells, Enhances Metabolic Functions</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Besides directly stabilizing the internal structures of the cell, progesterone increases the ATP concentration and oxygen consumption, decreases excitatory systems and numerous inflammation-related processes, decreases intracellular calcium concentration, and increases the use of glucose, leading to increased carbon dioxide production, as well as adjusting breathing and pH."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Self-Stimulating Process in Ovary Activation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the presence of progesterone activated the ovary’s synthetic apparatus in a self stimulating process. (The negative feedback idea from cybernetics has been widely misapplied in endocrinology.)"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Self-Stimulating Process in Ovary Activation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the presence of progesterone activated the ovary’s synthetic apparatus in a self stimulating process. (The negative feedback idea from cybernetics has been widely misapplied in endocrinology.)"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Enriched Environments and Progesterone Have Additive Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The pro-cognitive effects of an enriched environment and of progesterone can to some extent substitute for each other, and they are additive;"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Enriched Environments and Progesterone Have Additive Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The pro-cognitive effects of an enriched environment and of progesterone can to some extent substitute for each other, and they are additive;"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Environmental Enrichment Lowers Estrogen and Glucocorticoids</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"oth estrogen and the stress-induced glucocorticoids are reduced by environmental enrichment, allowing progesterone to function with less interference"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Environmental Enrichment Lowers Estrogen and Glucocorticoids</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"oth estrogen and the stress-induced glucocorticoids are reduced by environmental enrichment, allowing progesterone to function with less interference"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Common Inhibitors of Carbonic Anhydrase Enzyme</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Among the common inhibitors of carbonic anhydrase are the mildly oxidizing flavonoids such as apigenin and fisetin, some polyphenols, vitamin B1, vitamin D (Mras, et al., 2012), progesterone (partly by blocking the activation by estrogen and aldosterone), and emodin."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Common Inhibitors of Carbonic Anhydrase Enzyme</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Among the common inhibitors of carbonic anhydrase are the mildly oxidizing flavonoids such as apigenin and fisetin, some polyphenols, vitamin B1, vitamin D (Mras, et al., 2012), progesterone (partly by blocking the activation by estrogen and aldosterone), and emodin."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Aspirin, Vitamin E, and Progesterone as Anti-Estrogenic</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"spirin, vitamin E, and progesterone can be partly understood as antiestrogenic substances,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Aspirin, Vitamin E, and Progesterone as Anti-Estrogenic</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"spirin, vitamin E, and progesterone can be partly understood as antiestrogenic substances,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Various Substances&#39; Protective Roles Against Estrogen Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aspirin, vitamin E, and progesterone protect against a broad spectrum of harmful factors, besides their various antagonistic effects on the estrogen system itself. One of progesterone’s major effects is to suppress or degrade the estrogen receptor."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Various Substances&#39; Protective Roles Against Estrogen Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aspirin, vitamin E, and progesterone protect against a broad spectrum of harmful factors, besides their various antagonistic effects on the estrogen system itself. One of progesterone’s major effects is to suppress or degrade the estrogen receptor."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Oral Progesterone: Appropriate Response to Severe Stress</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Giving progesterone orally would seem to be appropriate for any serious stress, since the intestine quickly becomes an amplifier of the inflammatory reactions."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Oral Progesterone: Appropriate Response to Severe Stress</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Giving progesterone orally would seem to be appropriate for any serious stress, since the intestine quickly becomes an amplifier of the inflammatory reactions."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Protective Factors in Parkinson’s Broadly Counteract Estrogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"things that are likely to be protective in Parkinson’s disease are broadly protective against estrogen and the inflammatorydegenerative processes: Progesterone, minocycline and other anti-inflammatory antibiotics, agmatine, aspirin, coffee, niacinamide, citrus flavonoids, vitamin D, ACE inhibitors, fibrous-antiseptic foods."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Protective Factors in Parkinson’s Broadly Counteract Estrogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"things that are likely to be protective in Parkinson’s disease are broadly protective against estrogen and the inflammatorydegenerative processes: Progesterone, minocycline and other anti-inflammatory antibiotics, agmatine, aspirin, coffee, niacinamide, citrus flavonoids, vitamin D, ACE inhibitors, fibrous-antiseptic foods."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Environmental Factors Potentially Contributing to Autism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Things in the environment, or substances produced in reactions to environmental stress, that might cause autism, include prenatal and neonatal exposure to radiation, including isotopes from the power industry, bomb testing, Chernobyl, and Fukushima; exposure to air pollution, including nitrogen oxides, ozone, carbon monoxide, sulfur dioxide, and particles (Jung, et al., 2013); aluminum (Mold, et al., 2018), lead, mercury, manganese, arsenic, cadmium, chromium, manganese, and nickel (Windham, et al, 2006); acetaminophen, infections, endotoxin, exogenous and endogenous estrogens, hypothyroidism, progesterone deficiency, agmatine deficiency, serotonin excess, endogenous nitric oxide (Sweeten, et al., 2004), and vitamin D deficiency."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Environmental Factors Potentially Contributing to Autism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Things in the environment, or substances produced in reactions to environmental stress, that might cause autism, include prenatal and neonatal exposure to radiation, including isotopes from the power industry, bomb testing, Chernobyl, and Fukushima; exposure to air pollution, including nitrogen oxides, ozone, carbon monoxide, sulfur dioxide, and particles (Jung, et al., 2013); aluminum (Mold, et al., 2018), lead, mercury, manganese, arsenic, cadmium, chromium, manganese, and nickel (Windham, et al, 2006); acetaminophen, infections, endotoxin, exogenous and endogenous estrogens, hypothyroidism, progesterone deficiency, agmatine deficiency, serotonin excess, endogenous nitric oxide (Sweeten, et al., 2004), and vitamin D deficiency."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Understanding Progesterone&#39;s Antagonism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the 1970s, after I had learned to think of progesterone as the antagonist of estrogen,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Understanding Progesterone&#39;s Antagonism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the 1970s, after I had learned to think of progesterone as the antagonist of estrogen,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress Affects Estrogen and Progesterone</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Injury to the ovaries, or systemic stress, tends to decrease the production of progesterone, while the body’s production of estrogen is increased."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress Affects Estrogen and Progesterone</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Injury to the ovaries, or systemic stress, tends to decrease the production of progesterone, while the body’s production of estrogen is increased."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Compounds That Mitigate Carbon Monoxide&#39;s Adverse Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Safe things that lower carbon monoxide or protect against its effects include methylene blue, caffeine, aspirin, progesterone, and red light."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Compounds That Mitigate Carbon Monoxide&#39;s Adverse Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Safe things that lower carbon monoxide or protect against its effects include methylene blue, caffeine, aspirin, progesterone, and red light."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Milk&#39;s Components Support Efficient Energy Utilization</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Milk provides lactose, which is metabolized quickly into glucose, and small amounts of other substances, including progesterone and thyroid hormone, that favor its efficient use."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Milk&#39;s Components Support Efficient Energy Utilization</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Milk provides lactose, which is metabolized quickly into glucose, and small amounts of other substances, including progesterone and thyroid hormone, that favor its efficient use."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -385,7 +552,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

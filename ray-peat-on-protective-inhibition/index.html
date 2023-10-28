@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on protective inhibition</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,164 +119,221 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nitric Oxide: Central Factor in Shock State Dynamics</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"nitric oxide was a central factor in the shock state, and that inhibiting its formation could alleviate the shock state. The state of shock was often called circulatory failure, from excessive vasodilation, s0 it was easy to see a role for the vasodilator nitric oxide in circulatory collapse;"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nitric Oxide: Central Factor in Shock State Dynamics</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"nitric oxide was a central factor in the shock state, and that inhibiting its formation could alleviate the shock state. The state of shock was often called circulatory failure, from excessive vasodilation, s0 it was easy to see a role for the vasodilator nitric oxide in circulatory collapse;"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Estrogen-Induced Anti-Respiratory Substances and Their Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"One of the anti-respiratory substances produced by estrogen is carbon monoxide (Tschugguel, et al., 2001). Another inhibitor of mitochondrial oxidation, hydrogen sulfide, is also increased by estrogen (Lechuga, et al., 2015)."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Estrogen-Induced Anti-Respiratory Substances and Their Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"One of the anti-respiratory substances produced by estrogen is carbon monoxide (Tschugguel, et al., 2001). Another inhibitor of mitochondrial oxidation, hydrogen sulfide, is also increased by estrogen (Lechuga, et al., 2015)."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Interconnected Biochemical Responses</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"estrogen, nitric oxide, prostaglandins, and parasympathetic nerve activity commonly occur simultaneously, and it happens that a substance which inhibits one of those will often inhibit the others."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Interconnected Biochemical Responses</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"estrogen, nitric oxide, prostaglandins, and parasympathetic nerve activity commonly occur simultaneously, and it happens that a substance which inhibits one of those will often inhibit the others."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">NMDA Receptor Activation and the State of Pseudohypoxia.</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The NMDA receptor (like many other regulatory proteins, e.g, COX, TLR, NOS, aromatase) is activated by reduction of its thiol groups. The reductive state, which activates this excitatory system, can be produced by an actual oxygen deficiency, but also by inhibiting mitochondrial function, creating a state of pseudohypoxia."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">NMDA Receptor Activation and the State of Pseudohypoxia.</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The NMDA receptor (like many other regulatory proteins, e.g, COX, TLR, NOS, aromatase) is activated by reduction of its thiol groups. The reductive state, which activates this excitatory system, can be produced by an actual oxygen deficiency, but also by inhibiting mitochondrial function, creating a state of pseudohypoxia."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Common Inhibitors of Carbonic Anhydrase Enzyme</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Among the common inhibitors of carbonic anhydrase are the mildly oxidizing flavonoids such as apigenin and fisetin, some polyphenols, vitamin B1, vitamin D (Mras, et al., 2012), progesterone (partly by blocking the activation by estrogen and aldosterone), and emodin."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Common Inhibitors of Carbonic Anhydrase Enzyme</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Among the common inhibitors of carbonic anhydrase are the mildly oxidizing flavonoids such as apigenin and fisetin, some polyphenols, vitamin B1, vitamin D (Mras, et al., 2012), progesterone (partly by blocking the activation by estrogen and aldosterone), and emodin."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress Buffers: Substances that Help Keep Metabolism on Track</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Several of these substances inhibit the liberation of free fatty acids and prostaglandin formation, and reduce nitric oxide, lactate production, inflammation, excitation and cholinergic tone, and what they all have in common is supporting a shift away from a highly reduced condition, a shift toward an oxidized-energized balance."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress Buffers: Substances that Help Keep Metabolism on Track</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Several of these substances inhibit the liberation of free fatty acids and prostaglandin formation, and reduce nitric oxide, lactate production, inflammation, excitation and cholinergic tone, and what they all have in common is supporting a shift away from a highly reduced condition, a shift toward an oxidized-energized balance."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Diverse Influences and Impact of Nitric Oxide</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, like endotoxin and rotenone, is a powerful inhibitor of mitochondrial respiration. Endotoxin and other harmful stimuli can increase the formation of nitric oxide, but it’s also produced in the normal excitatory processes of nerves, and with an excess of excitation relative to energy production and inhibitory influences, it can become the central agent of excitotoxicity."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Diverse Influences and Impact of Nitric Oxide</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, like endotoxin and rotenone, is a powerful inhibitor of mitochondrial respiration. Endotoxin and other harmful stimuli can increase the formation of nitric oxide, but it’s also produced in the normal excitatory processes of nerves, and with an excess of excitation relative to energy production and inhibitory influences, it can become the central agent of excitotoxicity."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Deep Sleep&#39;s Role in Cellular Stability Restoration</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during deep sleep, inhibitory processes are able to restore stability to the cells that were damaged by toxic excitatory processes,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Deep Sleep&#39;s Role in Cellular Stability Restoration</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during deep sleep, inhibitory processes are able to restore stability to the cells that were damaged by toxic excitatory processes,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Understanding Sleep Onset through Cortical Inhibition</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The familiar events at the onset of sleep can be understood in terms of the spread of inhibition from the cortex to the brainstem and adjoining structures."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Understanding Sleep Onset through Cortical Inhibition</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The familiar events at the onset of sleep can be understood in terms of the spread of inhibition from the cortex to the brainstem and adjoining structures."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Role of Mitochondria in Nighttime Brain Function</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Optimizing mitochondrial function at the beginning of the night makes the brain’s inhibitory signals more effective, preserving glycogen stores and reducing noctural catabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Role of Mitochondria in Nighttime Brain Function</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Optimizing mitochondrial function at the beginning of the night makes the brain’s inhibitory signals more effective, preserving glycogen stores and reducing noctural catabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Structured Nature of Stimulation and Resulting Inhibition</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stimulation and excitation always have a particular structure, according to the perceived meaning, and for Pavlov, the resulting inhibition was also structured."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Structured Nature of Stimulation and Resulting Inhibition</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stimulation and excitation always have a particular structure, according to the perceived meaning, and for Pavlov, the resulting inhibition was also structured."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Noradrenaline: Navigating Its Dual Roles in Pain and Disease</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Y. Kuraishi (2015) said that noradrenaline inhibits pain by inhibiting the release of substance P and glutamate (the excitatory amino acid), and that the suppression of cancer pain results in the inhibition of tumor growth and lung metastasis..., apparently by inhibiting the release of substances from cancer cells (e.g., ATP, endothelin-1, and bradykinin). Things that activate and enliven the patient, and that at the same time decrease pain, seem to be therapeutically appropriate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Noradrenaline: Navigating Its Dual Roles in Pain and Disease</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Y. Kuraishi (2015) said that noradrenaline inhibits pain by inhibiting the release of substance P and glutamate (the excitatory amino acid), and that the suppression of cancer pain results in the inhibition of tumor growth and lung metastasis..., apparently by inhibiting the release of substances from cancer cells (e.g., ATP, endothelin-1, and bradykinin). Things that activate and enliven the patient, and that at the same time decrease pain, seem to be therapeutically appropriate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cholinergic System&#39;s Role in Glucose Oxidation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the cholinergic parasympathetic system tending to reduce glucose oxidation. Exaggerated activation of this system produces shock, with extreme inhibition of respiratory metabolism, but in normal circumstances, this system’s activity increases during the night and decreases during the day."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cholinergic System&#39;s Role in Glucose Oxidation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the cholinergic parasympathetic system tending to reduce glucose oxidation. Exaggerated activation of this system produces shock, with extreme inhibition of respiratory metabolism, but in normal circumstances, this system’s activity increases during the night and decreases during the day."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Parathyroid Hormone&#39;s Role and Effects in Aging</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Phosphate, which predominates in grains, beans, nuts, meats, and fish, increases our production of parathyroid hormone, while calcium and magnesium inhibit its production. This hormone, which increases with age, suppresses immunity, and in excess it causes insomnia, seizures, dementia, psychosis, cancer, heart disease, respiratory distress and pulmonary hypertension, osteoporosis, sarcopenia, histamine release, inflammation and soft tissue calcification, and many other problems."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Parathyroid Hormone&#39;s Role and Effects in Aging</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Phosphate, which predominates in grains, beans, nuts, meats, and fish, increases our production of parathyroid hormone, while calcium and magnesium inhibit its production. This hormone, which increases with age, suppresses immunity, and in excess it causes insomnia, seizures, dementia, psychosis, cancer, heart disease, respiratory distress and pulmonary hypertension, osteoporosis, sarcopenia, histamine release, inflammation and soft tissue calcification, and many other problems."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Plant Defenses and Impact on Animal Digestion</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Natural starches are always associated with the plant’s defensive substances, as well as with nutrients, and those defensive chemicals are often specific inhibitors of animals’ digestive enzymes."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Plant Defenses and Impact on Animal Digestion</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Natural starches are always associated with the plant’s defensive substances, as well as with nutrients, and those defensive chemicals are often specific inhibitors of animals’ digestive enzymes."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -232,7 +348,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on the brain</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,425 +119,569 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nutritional Deficits&#39; Impact on Neurological Imbalances</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The imbalances of endorphins, serotonin, catecholamines, and other nerve-regulators that have been seen in autism sometimes can be produced in adults by combined fatigue and poor nutrition, and when the livers glycogen is depleted, it can be hard to restore the balance. Prenatal influences of different types could damage connectivity, which permitting cells to survive. Normally, a large proportion of brain cells die before birth, because of limited availability of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nutritional Deficits&#39; Impact on Neurological Imbalances</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The imbalances of endorphins, serotonin, catecholamines, and other nerve-regulators that have been seen in autism sometimes can be produced in adults by combined fatigue and poor nutrition, and when the livers glycogen is depleted, it can be hard to restore the balance. Prenatal influences of different types could damage connectivity, which permitting cells to survive. Normally, a large proportion of brain cells die before birth, because of limited availability of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s High Glucose Consumption</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain consumes about 60% of the body’s glucose when a person is physically inactive, and because of its dependence on glucose, it’s easily damaged by even short periods of hypoglycemia."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s High Glucose Consumption</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain consumes about 60% of the body’s glucose when a person is physically inactive, and because of its dependence on glucose, it’s easily damaged by even short periods of hypoglycemia."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain Glycogen&#39;s Daily Cycle</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the amount of glycogen in the tissues has a daily cycle, especially in the brain, where it decreases during the day, and is replenished during the night."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain Glycogen&#39;s Daily Cycle</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the amount of glycogen in the tissues has a daily cycle, especially in the brain, where it decreases during the day, and is replenished during the night."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cortisol Responds to Low Glycogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When there isn’t enough stored glycogen in the liver, muscles, and other tissues, to provide the brain’s nocturnal glucose requirement, cortisol rises, breaking down tissue proteins to provide amino acids and glucose, but free fatty acids are also increased by this nocturnal stress."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cortisol Responds to Low Glycogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When there isn’t enough stored glycogen in the liver, muscles, and other tissues, to provide the brain’s nocturnal glucose requirement, cortisol rises, breaking down tissue proteins to provide amino acids and glucose, but free fatty acids are also increased by this nocturnal stress."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Aging Increases Brain Fatty Acids</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"As the proportion of polyunsaturated fatty acids increases with aging, some arachidonic acid becomes incorporated into the brain, and, especially during the night, the highly unsaturated fatty acids amplify the excitatory processes, including the formation of prostaglandins and other inflammation-producing compounds."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Aging Increases Brain Fatty Acids</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"As the proportion of polyunsaturated fatty acids increases with aging, some arachidonic acid becomes incorporated into the brain, and, especially during the night, the highly unsaturated fatty acids amplify the excitatory processes, including the formation of prostaglandins and other inflammation-producing compounds."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nighttime Carbs Lower Cortisol</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Having a large part of the day’s carbohydrate intake late in the day, or even during the night, can help to restore the brain’s glycogen with less need for cortisol, and helps to reduce the nocturnal rise of free fatty acids, and their excitatoryinflammatory effects."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nighttime Carbs Lower Cortisol</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Having a large part of the day’s carbohydrate intake late in the day, or even during the night, can help to restore the brain’s glycogen with less need for cortisol, and helps to reduce the nocturnal rise of free fatty acids, and their excitatoryinflammatory effects."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Larger Brain Correlates with Intelligence, Longevity</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In animals generally, a larger brain is associated not only with higher intelligence, but with greater longevity"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Larger Brain Correlates with Intelligence, Longevity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In animals generally, a larger brain is associated not only with higher intelligence, but with greater longevity"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain Cortex Sensitivity to Energy Levels</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The cortex of the brain, especially the frontal lobes, is the part most sensitive to energy adequacy or deprivation."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain Cortex Sensitivity to Energy Levels</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The cortex of the brain, especially the frontal lobes, is the part most sensitive to energy adequacy or deprivation."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Overexcitation in Cancer Physiology</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"an important part of the cancer physiology is overexcitation of the brain, especially the hypothalamus,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Overexcitation in Cancer Physiology</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"an important part of the cancer physiology is overexcitation of the brain, especially the hypothalamus,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Brain-Stabilizing Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since carbon dioxide has stabilizing effects in the brain, including the relaxation of blood vessels, the loss of carbon dioxide causes vasoconstriction, deficient delivery of oxygen and glucose to the brain, leading to a decreased metabolic rate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Brain-Stabilizing Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since carbon dioxide has stabilizing effects in the brain, including the relaxation of blood vessels, the loss of carbon dioxide causes vasoconstriction, deficient delivery of oxygen and glucose to the brain, leading to a decreased metabolic rate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain Redox Balance Indications in Mental Disorders</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"MRI can also directly measure the redox balance, NAD/NADH, of the brain, and it has been found that schizophrenics and manic depressives have lower ratios, that is, their cells are less well oxidized. Before any mental impairment develops, people who later develop Alzheimer’s disease, experience reductive stress"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain Redox Balance Indications in Mental Disorders</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"MRI can also directly measure the redox balance, NAD/NADH, of the brain, and it has been found that schizophrenics and manic depressives have lower ratios, that is, their cells are less well oxidized. Before any mental impairment develops, people who later develop Alzheimer’s disease, experience reductive stress"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Therapeutic Potentials of Carbon Dioxide Usage</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Direct use of carbon dioxide is likely to be helpful in all the situations that are known to be benefitted by acetazolamide, without the risk of allergy to that drug—traumatic brain edema, mountain sickness, osteoporosis, epilepsy, glaucoma, hyperactivity (ADHD), inflammation, polyps of the intestine, and arthritis. Diabetes, cardiomyopathy (Torella, et al., 2014), obesity (Arechederra, et al., 2013), cancer, dementia and psychosis are also likely to benefit."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Therapeutic Potentials of Carbon Dioxide Usage</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Direct use of carbon dioxide is likely to be helpful in all the situations that are known to be benefitted by acetazolamide, without the risk of allergy to that drug—traumatic brain edema, mountain sickness, osteoporosis, epilepsy, glaucoma, hyperactivity (ADHD), inflammation, polyps of the intestine, and arthritis. Diabetes, cardiomyopathy (Torella, et al., 2014), obesity (Arechederra, et al., 2013), cancer, dementia and psychosis are also likely to benefit."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Role in Overall Health</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain is a factor in any sickness or injury, and if the brain malfunctions, every other system is affected."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Role in Overall Health</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain is a factor in any sickness or injury, and if the brain malfunctions, every other system is affected."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Intestinal Stress Effects Overlooked</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While the effects of stress on the intestine have been recognized since Hans Selye described the general adaptation syndrome (with intestinal bleeding as an early sign of stress), that hasnt been taken into account in any of the large brain trauma or stroke studies."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Intestinal Stress Effects Overlooked</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While the effects of stress on the intestine have been recognized since Hans Selye described the general adaptation syndrome (with intestinal bleeding as an early sign of stress), that hasnt been taken into account in any of the large brain trauma or stroke studies."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain-Inflammation Link to Organs</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The inflammatory, degenerative processes in the brain take a few hours to develop, and during these few hours the stress signals from the brain are causing changes in the intestine that lead to a systemic inflammatory state"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain-Inflammation Link to Organs</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The inflammatory, degenerative processes in the brain take a few hours to develop, and during these few hours the stress signals from the brain are causing changes in the intestine that lead to a systemic inflammatory state"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Unique Needs Post-Brain Injury</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Each person with a traumatic brain injury has unique needs that arent very compatible with the stereotyped treatments used in clinical studies, but there are common features of any brain injury, and those overlap with the features of the various kinds of shock, and of degenerative processes of particular organs."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Unique Needs Post-Brain Injury</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Each person with a traumatic brain injury has unique needs that arent very compatible with the stereotyped treatments used in clinical studies, but there are common features of any brain injury, and those overlap with the features of the various kinds of shock, and of degenerative processes of particular organs."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Urea&#39;s Lost Role in Brain Treatment</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"50 years ago, urea was widely used to treat brain injuries, but a misunderstanding of its physical properties, and now the availability of the highly profitable vaptans, have displaced it."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Urea&#39;s Lost Role in Brain Treatment</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"50 years ago, urea was widely used to treat brain injuries, but a misunderstanding of its physical properties, and now the availability of the highly profitable vaptans, have displaced it."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Bowel Influence and Parkinson’s Disease Treatments</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the bowels can influence the brain, and we have discovered a variety of things that damage the substantia nigra, producing the shaking palsy, and a few practices—drinking coffee or alcohol, smoking, using aspirin—that significantly reduce the risk. These observations suggest that there are effective ways to treat Parkinson’s disease with diet, laxatives, and anti-inflammatory substances."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Bowel Influence and Parkinson’s Disease Treatments</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the bowels can influence the brain, and we have discovered a variety of things that damage the substantia nigra, producing the shaking palsy, and a few practices—drinking coffee or alcohol, smoking, using aspirin—that significantly reduce the risk. These observations suggest that there are effective ways to treat Parkinson’s disease with diet, laxatives, and anti-inflammatory substances."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Endotoxin&#39;s Role in Activating Inflammatory Processes</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The endotoxin, lipopolysaccharide, has a general excitatory effect effect that activates cell inflammatory processes and damages energy production, with the mediation of cell products such as nitric oxide, carbon monoxide, serotonin, histamine, prostaglandins, estrogens, and various cytokines (interleukins and tumor necrosis factor,TNF). Some of these substances enter the blood stream from the intestine, others are produced elsewhere in the body, but some are produced in the brain itself, when endotoxin is absorbed into the brain"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Endotoxin&#39;s Role in Activating Inflammatory Processes</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The endotoxin, lipopolysaccharide, has a general excitatory effect effect that activates cell inflammatory processes and damages energy production, with the mediation of cell products such as nitric oxide, carbon monoxide, serotonin, histamine, prostaglandins, estrogens, and various cytokines (interleukins and tumor necrosis factor,TNF). Some of these substances enter the blood stream from the intestine, others are produced elsewhere in the body, but some are produced in the brain itself, when endotoxin is absorbed into the brain"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain Functionality as a Cybernetic Control System</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"those who follow Norbert Wiener’s example, viewing the brain as a cybernetic control system, rather than as a logic machine, have a fruitful model that can represent the brain as it goes through various changes of state."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain Functionality as a Cybernetic Control System</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"those who follow Norbert Wiener’s example, viewing the brain as a cybernetic control system, rather than as a logic machine, have a fruitful model that can represent the brain as it goes through various changes of state."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">In-Vitro Brain Cell Resonance with Sleep Rhythms</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Groups of brain cells, removed from a brain and observed in vitro, interact in a way that’s analogous to resonance of electrons in molecules or of molecules in physical objects; their electrical activity gradually becomes coordinated, producing electrical signals resembling the EEG (electroencephalogram) signal of a brain in the state of slow wave (deep) sleep."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">In-Vitro Brain Cell Resonance with Sleep Rhythms</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Groups of brain cells, removed from a brain and observed in vitro, interact in a way that’s analogous to resonance of electrons in molecules or of molecules in physical objects; their electrical activity gradually becomes coordinated, producing electrical signals resembling the EEG (electroencephalogram) signal of a brain in the state of slow wave (deep) sleep."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain Areas&#39; Independent Initiation of Sleep Rhythm</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A small area of the brain can go into the sleep rhythm earlier than other areas, if it has been more strongly stimulated."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain Areas&#39; Independent Initiation of Sleep Rhythm</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A small area of the brain can go into the sleep rhythm earlier than other areas, if it has been more strongly stimulated."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Understanding the Onset of Sleep in the Brain</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"sleep begins in the cortex, and spreads to other parts of the brain and body."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Understanding the Onset of Sleep in the Brain</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"sleep begins in the cortex, and spreads to other parts of the brain and body."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Role of Mitochondria in Nighttime Brain Function</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Optimizing mitochondrial function at the beginning of the night makes the brain’s inhibitory signals more effective, preserving glycogen stores and reducing noctural catabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Role of Mitochondria in Nighttime Brain Function</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Optimizing mitochondrial function at the beginning of the night makes the brain’s inhibitory signals more effective, preserving glycogen stores and reducing noctural catabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nighttime Brain Lipid Turnover and Fatty Acid Dynamics</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The rise of free fatty acids in the serum during the night coincides with a high rate of turnover of the brain’s phospholipids. Polyunsaturated fatty acids are preferentially liberated from fat stores, in proportion to their degree of unsaturation (Raclot, 2003; Conner, et al., 1996), so their interchange with the brain’s lipids means that each night the brain will become enriched with the highly unsaturated fats that are most susceptible to lipid peroxidation."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nighttime Brain Lipid Turnover and Fatty Acid Dynamics</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The rise of free fatty acids in the serum during the night coincides with a high rate of turnover of the brain’s phospholipids. Polyunsaturated fatty acids are preferentially liberated from fat stores, in proportion to their degree of unsaturation (Raclot, 2003; Conner, et al., 1996), so their interchange with the brain’s lipids means that each night the brain will become enriched with the highly unsaturated fats that are most susceptible to lipid peroxidation."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Societal Denial of Childhood Trauma and Brain Damage</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Frances Tustin wrote that There is persistent denial by American society of the causes of damage to millions of children who are thus traumatized and brain damaged as a consequence of cruel treatment by parents who are otherwise too busy to love and care for their babies. A study of adopted Romanian babies confirmed the observations of many people in previous decades that the impersonal treatment in orphanages damages many of the children."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Societal Denial of Childhood Trauma and Brain Damage</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Frances Tustin wrote that There is persistent denial by American society of the causes of damage to millions of children who are thus traumatized and brain damaged as a consequence of cruel treatment by parents who are otherwise too busy to love and care for their babies. A study of adopted Romanian babies confirmed the observations of many people in previous decades that the impersonal treatment in orphanages damages many of the children."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Survival Mechanisms in Stressful Environmental Interactions</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"n mediating adaptation, the brain orients the organism toward aspects of the environment that are most likely to satisfy its needs, and this involves making judgments of possible future situations. In the absence of good prospects, the brain concerns itself with defensive changes, increasing the stress hormones, the fight-or-flight mechanisms, and begins to convert some of its own tissues to energy and materials needed for the survival of its essential organs, the brain, lungs, and heart."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Survival Mechanisms in Stressful Environmental Interactions</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"n mediating adaptation, the brain orients the organism toward aspects of the environment that are most likely to satisfy its needs, and this involves making judgments of possible future situations. In the absence of good prospects, the brain concerns itself with defensive changes, increasing the stress hormones, the fight-or-flight mechanisms, and begins to convert some of its own tissues to energy and materials needed for the survival of its essential organs, the brain, lungs, and heart."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Continuous Revision and Reconstruction of Body Tissues</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the body’s tissues, including the brain, are subject to revision and reconstruction."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Continuous Revision and Reconstruction of Body Tissues</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the body’s tissues, including the brain, are subject to revision and reconstruction."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Effects of Parathyroid Hormone Increase on Body Tissues</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When vitamin D or calcium is deficient, or when phosphate is excessive, and in hypoglycemia and stress (Ljunghall, et al., 1984), parathyroid hormone increases. This can lead to softening of bones, and hardening of soft tissues, especially arteries, sometimes brain, skin and other organs. Parathyroid hormone increases blood pressure, even before the calcium stiffening is detected."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Effects of Parathyroid Hormone Increase on Body Tissues</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When vitamin D or calcium is deficient, or when phosphate is excessive, and in hypoglycemia and stress (Ljunghall, et al., 1984), parathyroid hormone increases. This can lead to softening of bones, and hardening of soft tissues, especially arteries, sometimes brain, skin and other organs. Parathyroid hormone increases blood pressure, even before the calcium stiffening is detected."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -493,7 +696,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on lactic acid</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,218 +119,293 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Identifying Reductive Stress Through Metabolic Ratios</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, and during stress, animals metabolism shifts toward reduction, with a higher ratio of lactate to pyruvate, of NADH to NAD, of ascorbate to dehydroascorbate, etc., a state of reductive stress."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Identifying Reductive Stress Through Metabolic Ratios</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, and during stress, animals metabolism shifts toward reduction, with a higher ratio of lactate to pyruvate, of NADH to NAD, of ascorbate to dehydroascorbate, etc., a state of reductive stress."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Extreme Stress and Biological Adaptation: Survival&#39;s Tightrope</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"During adaptation, the functional load is shifted to the system that is meeting the new challenge, and a variety of stimuli, from nerves and hormones, activate the cells of that responsive system, and resources, such as amino acids, can be moved from less active systems to support the new level of functioning. The organism has to focus its stimulating factors accurately, and the resources, including glucose stored in the tissues as glycogen, have to be adequate. If stimulation is too intense or too widespread, and if too much fat is mobilized relative to glucose, self-defeating processes can occur."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Extreme Stress and Biological Adaptation: Survival&#39;s Tightrope</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"During adaptation, the functional load is shifted to the system that is meeting the new challenge, and a variety of stimuli, from nerves and hormones, activate the cells of that responsive system, and resources, such as amino acids, can be moved from less active systems to support the new level of functioning. The organism has to focus its stimulating factors accurately, and the resources, including glucose stored in the tissues as glycogen, have to be adequate. If stimulation is too intense or too widespread, and if too much fat is mobilized relative to glucose, self-defeating processes can occur."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Reductive Stress and Its Self-Reinforcing Biochemical Cycles</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he reductive state, resulting from starvation or hypoglycemia, or an excess of lactate or fat, or oxygen deprivation, activates the release of glutamate, and the excitation produced by that can shut off mitochondrial oxidation, reinforcing the state of pseudohypoxia. Nitric oxide synthesis, activated by reductive stress, is a major factor in the suppression of mitochondrial oxidation."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Reductive Stress and Its Self-Reinforcing Biochemical Cycles</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he reductive state, resulting from starvation or hypoglycemia, or an excess of lactate or fat, or oxygen deprivation, activates the release of glutamate, and the excitation produced by that can shut off mitochondrial oxidation, reinforcing the state of pseudohypoxia. Nitric oxide synthesis, activated by reductive stress, is a major factor in the suppression of mitochondrial oxidation."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactic Acid in the Brain: More Than a Waste Product</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While lactic acid and a more reducing balance in cells activate the excitatory glutamatergic system, an increased concentration of carbon dioxide inhibits that system"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactic Acid in the Brain: More Than a Waste Product</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While lactic acid and a more reducing balance in cells activate the excitatory glutamatergic system, an increased concentration of carbon dioxide inhibits that system"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Energy on a Pivot: Metabolic Responses to Lactate and Beta-Hydroxybutyrate</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The use of lactate or beta-hydroxybutyrate as metabolic fuel shifts the balance in the reductive direction, the way ethanol metabolism does."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Energy on a Pivot: Metabolic Responses to Lactate and Beta-Hydroxybutyrate</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The use of lactate or beta-hydroxybutyrate as metabolic fuel shifts the balance in the reductive direction, the way ethanol metabolism does."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactate&#39;s Bridging Role in Metabolism and Stress Response</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reduced state leads to increased production of lactate, which produces enough energy to keep the cell alive, but the lactate contributes to the stressed redox shift in the cell that produces it, as well as in the surrounding cells."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactate&#39;s Bridging Role in Metabolism and Stress Response</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reduced state leads to increased production of lactate, which produces enough energy to keep the cell alive, but the lactate contributes to the stressed redox shift in the cell that produces it, as well as in the surrounding cells."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Metabolic Response to Cellular Crisis: A Matter of Survival</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cells are dangerously overstimulated, oxygen and glucose are depleted. In the absence of oxygen, or when the ability to use oxygen is blocked, glucose is converted to lactate, and when glucose is depleted, glutamine is converted to lactate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Metabolic Response to Cellular Crisis: A Matter of Survival</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cells are dangerously overstimulated, oxygen and glucose are depleted. In the absence of oxygen, or when the ability to use oxygen is blocked, glucose is converted to lactate, and when glucose is depleted, glutamine is converted to lactate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactate&#39;s Influence in a Reduced Cellular State and Glucose Oxidation Inhibition</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With a limited supply of oxygen but an unlimited supply of lactate, the cell’s metabolic reactions are shifted toward a reduced, electronrich, state. This state inhibits the oxidation of glucose by blocking the enzyme pyruvate dehydrogenase, supporting the formation of lactate. These are internal processes of stressed cells, that can be interrupted when the organism provides corrective factors to restore oxidation."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactate&#39;s Influence in a Reduced Cellular State and Glucose Oxidation Inhibition</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With a limited supply of oxygen but an unlimited supply of lactate, the cell’s metabolic reactions are shifted toward a reduced, electronrich, state. This state inhibits the oxidation of glucose by blocking the enzyme pyruvate dehydrogenase, supporting the formation of lactate. These are internal processes of stressed cells, that can be interrupted when the organism provides corrective factors to restore oxidation."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Regenerative Processes: The Enzymatic Pathways Triggered by Injury</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the first reactions to injury, the inflammatory changes activate enzymes that support undifferentiated growth."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Regenerative Processes: The Enzymatic Pathways Triggered by Injury</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the first reactions to injury, the inflammatory changes activate enzymes that support undifferentiated growth."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactate in Cancer: Disruptor or Energy Saviour?</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cancer metabolism increases the amount of lactate in the blood, increased breathing lowers the carbon dioxide in the blood (Gargaglioni, et al., 2003), and the loss of CO2 affects metabolism and physiology at all levels."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactate in Cancer: Disruptor or Energy Saviour?</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cancer metabolism increases the amount of lactate in the blood, increased breathing lowers the carbon dioxide in the blood (Gargaglioni, et al., 2003), and the loss of CO2 affects metabolism and physiology at all levels."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Link to Chronic Stress and Metabolic Issues</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In hypothyroidism, with lowered oxidative metabolism, the organism is never far from stress and hyperventilation, with the chronic production of lactate and ammonia. The inefficient metabolism of diabetes has similar effects."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Link to Chronic Stress and Metabolic Issues</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In hypothyroidism, with lowered oxidative metabolism, the organism is never far from stress and hyperventilation, with the chronic production of lactate and ammonia. The inefficient metabolism of diabetes has similar effects."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Various Substances Increasing Breathing, Reducing Essential CO2</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Besides ammonia and lactate, other stress related substances can also increase the drive to breathe more, depleting the essential CO2—endotoxin, acetylcholine, serotonin, hydrogen sulfide, nitric oxide, carbon monoxide, angiotensin, and estrogen, for example."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Various Substances Increasing Breathing, Reducing Essential CO2</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Besides ammonia and lactate, other stress related substances can also increase the drive to breathe more, depleting the essential CO2—endotoxin, acetylcholine, serotonin, hydrogen sulfide, nitric oxide, carbon monoxide, angiotensin, and estrogen, for example."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism, Stress, and Related Physiological Complications</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Hypothyroid people, with low production of CO2, are very susceptible to stress-induced hyperventilation, and they are often in a state of physiological hyperventilation. They are susceptible to over-production of ammonia (De Nardo, et al., 1999; Marti, et al., 1988) and lactate (Zarzeczny, et al., 1996), and to psychosis, especially depression and mania."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism, Stress, and Related Physiological Complications</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Hypothyroid people, with low production of CO2, are very susceptible to stress-induced hyperventilation, and they are often in a state of physiological hyperventilation. They are susceptible to over-production of ammonia (De Nardo, et al., 1999; Marti, et al., 1988) and lactate (Zarzeczny, et al., 1996), and to psychosis, especially depression and mania."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism and the Risk of Reductive Stress</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The weak oxidative metabolism in hypothyroidism makes it easy to enter a state of reductive stress, with a shift toward a higher concentration of NADH and lactate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism and the Risk of Reductive Stress</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The weak oxidative metabolism in hypothyroidism makes it easy to enter a state of reductive stress, with a shift toward a higher concentration of NADH and lactate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">ACE and Carbonic Anhydrase&#39;s Roles in Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"angiotensin converting enzyme (ACE) and carbonic anhydrase, have fundamental roles in shaping metabolism. Angiotensin II, the peptide produced by ACE, increases blood pressure and water retention and activates the pituitary and adrenal stress hormones, especially aldosterone. Both angiotensin and aldosterone activate carbonic anhydrase. It seems that any chemical that causes contraction of blood vessels also activates carbonic anhydrase"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">ACE and Carbonic Anhydrase&#39;s Roles in Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"angiotensin converting enzyme (ACE) and carbonic anhydrase, have fundamental roles in shaping metabolism. Angiotensin II, the peptide produced by ACE, increases blood pressure and water retention and activates the pituitary and adrenal stress hormones, especially aldosterone. Both angiotensin and aldosterone activate carbonic anhydrase. It seems that any chemical that causes contraction of blood vessels also activates carbonic anhydrase"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress-Induced Breathing Changes and Their Consequences</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stress modifies our breathing, causing a vicious cycle, in which the lactate and ammonia produced when stimulation exceeds our oxidative capacity stimulate more intense breathing, causing more carbon dioxide to be lost, reducing oxidative efficiency and increasing the formation of ammonia and lactate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress-Induced Breathing Changes and Their Consequences</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stress modifies our breathing, causing a vicious cycle, in which the lactate and ammonia produced when stimulation exceeds our oxidative capacity stimulate more intense breathing, causing more carbon dioxide to be lost, reducing oxidative efficiency and increasing the formation of ammonia and lactate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Importance of Monitoring Ammonia and Lactate Levels</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Because of their role in producing and maintaining pseudohypoxia, and stimulating hyperventilation, there should be more attention to measuring the presence of ammonia and lactate in the blood, breath and urine."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Importance of Monitoring Ammonia and Lactate Levels</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Because of their role in producing and maintaining pseudohypoxia, and stimulating hyperventilation, there should be more attention to measuring the presence of ammonia and lactate in the blood, breath and urine."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress Buffers: Substances that Help Keep Metabolism on Track</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Several of these substances inhibit the liberation of free fatty acids and prostaglandin formation, and reduce nitric oxide, lactate production, inflammation, excitation and cholinergic tone, and what they all have in common is supporting a shift away from a highly reduced condition, a shift toward an oxidized-energized balance."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress Buffers: Substances that Help Keep Metabolism on Track</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Several of these substances inhibit the liberation of free fatty acids and prostaglandin formation, and reduce nitric oxide, lactate production, inflammation, excitation and cholinergic tone, and what they all have in common is supporting a shift away from a highly reduced condition, a shift toward an oxidized-energized balance."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nitric Oxide Induces Metabolic Shift to Glycolysis</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, even in the presence of oxygen, causes a metabolic shift to glycolysis, wastefully producing lactate from glucose"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nitric Oxide Induces Metabolic Shift to Glycolysis</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, even in the presence of oxygen, causes a metabolic shift to glycolysis, wastefully producing lactate from glucose"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lipolysis Intensity and Restorative Sleep Interference</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The intensity of lipolysis during the night is decreased during the most restorative deep sleep, but the free fatty acids themselves, by blocking oxidation of glucose to carbon dioxide, tend to increase lactate and to depress glucose metabolism, creating an inflammatory and excitatory state that interferes with deep sleep."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lipolysis Intensity and Restorative Sleep Interference</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The intensity of lipolysis during the night is decreased during the most restorative deep sleep, but the free fatty acids themselves, by blocking oxidation of glucose to carbon dioxide, tend to increase lactate and to depress glucose metabolism, creating an inflammatory and excitatory state that interferes with deep sleep."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Noradrenaline: Navigating Its Dual Roles in Pain and Disease</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Y. Kuraishi (2015) said that noradrenaline inhibits pain by inhibiting the release of substance P and glutamate (the excitatory amino acid), and that the suppression of cancer pain results in the inhibition of tumor growth and lung metastasis..., apparently by inhibiting the release of substances from cancer cells (e.g., ATP, endothelin-1, and bradykinin). Things that activate and enliven the patient, and that at the same time decrease pain, seem to be therapeutically appropriate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Noradrenaline: Navigating Its Dual Roles in Pain and Disease</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Y. Kuraishi (2015) said that noradrenaline inhibits pain by inhibiting the release of substance P and glutamate (the excitatory amino acid), and that the suppression of cancer pain results in the inhibition of tumor growth and lung metastasis..., apparently by inhibiting the release of substances from cancer cells (e.g., ATP, endothelin-1, and bradykinin). Things that activate and enliven the patient, and that at the same time decrease pain, seem to be therapeutically appropriate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Vicious Cycle of Estrogen and Inflammation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the free fatty acids promote the effects of estrogen, and increase the formation of the inflammatory prostaglandins, which activate aromatase. Since estrogen increases lipolysis and elevates free fatty acids, and promotes their conversion to prostaglandins, this process initiated by stress easily becomes a selfsustaining vicious circle."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Vicious Cycle of Estrogen and Inflammation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the free fatty acids promote the effects of estrogen, and increase the formation of the inflammatory prostaglandins, which activate aromatase. Since estrogen increases lipolysis and elevates free fatty acids, and promotes their conversion to prostaglandins, this process initiated by stress easily becomes a selfsustaining vicious circle."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -286,7 +420,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>

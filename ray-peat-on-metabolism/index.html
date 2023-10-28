@@ -3,16 +3,18 @@
 <head>
   <head>
     
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-06ZMT3QQ55"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
 
 
     
-    
 
+    
+    
+    
     <title>Ray Peat on metabolism</title>
     <meta charset="utf-8">
-    <meta name="description"
-        content="Website meta description for google search results go here" />
+    <meta name="description" content="Website meta description for google search results go here" />
     <meta name="dc.relation" content="https://raypeatexplained.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
@@ -21,10 +23,67 @@
 
     
     <link rel="stylesheet" href="../css/styles.min.css" media="screen">
- 
+
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-    
+
+    <script>
+
+        document.getElementById('quoteSearch').addEventListener('input', function (e) {
+            var term = e.target.value.toLowerCase();
+            var quotes = document.querySelectorAll('.quote'); 
+            quotes.forEach(function (quote) {
+                var text = quote.textContent.toLowerCase();
+                if (text.indexOf(term) != -1) {
+                    quote.style.display = '';
+                    
+                } else {
+                    quote.style.display = 'none';
+                }
+            });
+
+            var searchTerm = document.getElementById('quoteSearch').value; 
+            var quotesContainer = document.getElementById("quotesContainer"); 
+
+            
+            var markInstance = new Mark(quotesContainer);
+
+            
+            markInstance.unmark({
+                done: function () {
+                    
+                    
+                    markInstance.mark(searchTerm, {
+                        separateWordSearch: false, 
+                        accuracy: "exactly", 
+                        element: "span", 
+                        className: "highlight", 
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+         
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            min-width: calc(50% - 20px);
+             
+        }
+
+        .highlight {
+            background-color: yellow;
+             
+        }
+    </style>
 
 </head>
 </head>
@@ -60,506 +119,677 @@
   
   
   
-  <nav>
-  </nav>
+  <div class="search-box">
+    <input type="text" id="quoteSearch" placeholder="Search quotes...">
+  </div>
+
+ 
 
   
+
+  <div id="quotesContainer"> 
   <p>
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Positive Dietary Changes Normalize Energy Burst Fluctuations</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If the rest of your diet is good, the energy bursts from sugar should level off, and become a steady increased metabolic rate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Positive Dietary Changes Normalize Energy Burst Fluctuations</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If the rest of your diet is good, the energy bursts from sugar should level off, and become a steady increased metabolic rate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Estrogen, Injury, and Energy Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The remarkable fact that both estrogen and nitric oxide are produced by practically any injury has seldom been mentioned, and their closely related effects on energy metabolism have been generally ignored."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Estrogen, Injury, and Energy Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The remarkable fact that both estrogen and nitric oxide are produced by practically any injury has seldom been mentioned, and their closely related effects on energy metabolism have been generally ignored."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Estrogen&#39;s Influence on Cellular Metabolism and Differentiation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"1 interpreted estrogens role in reproduction and cell proliferation in terms of an idea that was discussed by Otto Warburg and others. In this view, multiplication is the basic, simplest function of any cell, and it is supported by inefficient non-oxidative metabolism, while the differentiation of cells to form part of a stable multicellular organism requires the highly efficient oxidativ"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Estrogen&#39;s Influence on Cellular Metabolism and Differentiation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"1 interpreted estrogens role in reproduction and cell proliferation in terms of an idea that was discussed by Otto Warburg and others. In this view, multiplication is the basic, simplest function of any cell, and it is supported by inefficient non-oxidative metabolism, while the differentiation of cells to form part of a stable multicellular organism requires the highly efficient oxidativ"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Estrogen&#39;s Disruption of Oxidative Metabolism for Reproduction and Repair</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A substance such as estrogen is able to interrupt oxidative metabolism to initiate reproduction of the organism, or to stimulate tissue repair, in response to a local injury."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Estrogen&#39;s Disruption of Oxidative Metabolism for Reproduction and Repair</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A substance such as estrogen is able to interrupt oxidative metabolism to initiate reproduction of the organism, or to stimulate tissue repair, in response to a local injury."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Adaptive Role of Estrogen in Hibernation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Estrogens increase of nitric oxide and/or hydrogen sulfide is adaptive for a hibernating animal, reducing its body temperature and metabolic rate"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Adaptive Role of Estrogen in Hibernation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Estrogens increase of nitric oxide and/or hydrogen sulfide is adaptive for a hibernating animal, reducing its body temperature and metabolic rate"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nitric Oxide: The Double-Edged Sword in Metabolic Regulation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"itric oxide blocks the ability to use sugar, but it slows metabolism, so it could serve to adjust the size of developing organs, to allow survival when fuel is less abundant."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nitric Oxide: The Double-Edged Sword in Metabolic Regulation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"itric oxide blocks the ability to use sugar, but it slows metabolism, so it could serve to adjust the size of developing organs, to allow survival when fuel is less abundant."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Thyroid Hormone Balances Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since the metabolic rate must be in balance with the availability of fuel, the thyroid hormone, which directly activates the respiratory enzymes, is especially important. Just as it wouldnt be possible for an animal to hibernate in a hyperthyroid state, a basic mechanism for dealing with stress in non-hibernators is to lower the production of thyroid hormone. Nitric oxide blocks the formation of thyroid hormone in response to thyroid stimulating hormone"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Thyroid Hormone Balances Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since the metabolic rate must be in balance with the availability of fuel, the thyroid hormone, which directly activates the respiratory enzymes, is especially important. Just as it wouldnt be possible for an animal to hibernate in a hyperthyroid state, a basic mechanism for dealing with stress in non-hibernators is to lower the production of thyroid hormone. Nitric oxide blocks the formation of thyroid hormone in response to thyroid stimulating hormone"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolic Shifts from Glucose to Fat and Its Consequences</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The shift of metabolic fuel from glucose to fat causes the oxidation state of the organism to shift to the reduced side, away from the oxidized state which favors stable differentiated functioning."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolic Shifts from Glucose to Fat and Its Consequences</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The shift of metabolic fuel from glucose to fat causes the oxidation state of the organism to shift to the reduced side, away from the oxidized state which favors stable differentiated functioning."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Identifying Reductive Stress Through Metabolic Ratios</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, and during stress, animals metabolism shifts toward reduction, with a higher ratio of lactate to pyruvate, of NADH to NAD, of ascorbate to dehydroascorbate, etc., a state of reductive stress."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Identifying Reductive Stress Through Metabolic Ratios</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, and during stress, animals metabolism shifts toward reduction, with a higher ratio of lactate to pyruvate, of NADH to NAD, of ascorbate to dehydroascorbate, etc., a state of reductive stress."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Consequences of Impaired Glucose Oxidation and Shift to Fatty Acids</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the oxidation of glucose is impaired, with fatty acids being oxidized for energy, there is usually a decrease in the overall metabolic rate, as well as a shift toward a more reductive biochemistry. A"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Consequences of Impaired Glucose Oxidation and Shift to Fatty Acids</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the oxidation of glucose is impaired, with fatty acids being oxidized for energy, there is usually a decrease in the overall metabolic rate, as well as a shift toward a more reductive biochemistry. A"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Tracing the Long-Term Effects of Early-Life Hypoglycemia</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When hypoglycemia occurs during gestation or in infancy, when metabolic intensity is greatest, the adaptations can lead to life-long problems."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Tracing the Long-Term Effects of Early-Life Hypoglycemia</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When hypoglycemia occurs during gestation or in infancy, when metabolic intensity is greatest, the adaptations can lead to life-long problems."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress Induction via Reductive State and Imbalanced Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stress exists to the degree that cells are shifted into a reductive, pseudohypoxic state, by an imbalance between stimulation and the rate of restorative oxidative metabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress Induction via Reductive State and Imbalanced Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Stress exists to the degree that cells are shifted into a reductive, pseudohypoxic state, by an imbalance between stimulation and the rate of restorative oxidative metabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Energy on a Pivot: Metabolic Responses to Lactate and Beta-Hydroxybutyrate</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The use of lactate or beta-hydroxybutyrate as metabolic fuel shifts the balance in the reductive direction, the way ethanol metabolism does."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Energy on a Pivot: Metabolic Responses to Lactate and Beta-Hydroxybutyrate</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The use of lactate or beta-hydroxybutyrate as metabolic fuel shifts the balance in the reductive direction, the way ethanol metabolism does."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Antagonism Towards Other Steroid Hormones</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone’s effects are antagonistic to the effects of the other major steroid hormones, especially estrogen, cortisol, and aldosterone. Those hormones interfere with energy metabolism, specifically with the oxidation of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Antagonism Towards Other Steroid Hormones</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone’s effects are antagonistic to the effects of the other major steroid hormones, especially estrogen, cortisol, and aldosterone. Those hormones interfere with energy metabolism, specifically with the oxidation of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolism&#39;s Influence on Time Perception and Behavior</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he experience of time governs the way we behave, and our metabolism governs the way we experience time. Progesterone, as a central neurosteroid, is a crucial part of our metabolism that shapes our consciousness as it projects itself into time"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolism&#39;s Influence on Time Perception and Behavior</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he experience of time governs the way we behave, and our metabolism governs the way we experience time. Progesterone, as a central neurosteroid, is a crucial part of our metabolism that shapes our consciousness as it projects itself into time"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Organism&#39;s Condition Affects Representation of Reality</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"if the representation of the world is developed in the flowing metabolism and physiology of an organism, the properties of the model will change as the condition of the organism changes. Norbert Wiener and P.K. Anokhin both considered some of the implications of fine-grain, continuous, modeling of reality."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Organism&#39;s Condition Affects Representation of Reality</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"if the representation of the world is developed in the flowing metabolism and physiology of an organism, the properties of the model will change as the condition of the organism changes. Norbert Wiener and P.K. Anokhin both considered some of the implications of fine-grain, continuous, modeling of reality."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Organism&#39;s Adaptive Capacity in Rich vs. Poor Environments</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In every circumstance, adaptive metabolism is occurring in an organism, and when the environment is unfavorable, the organism can defend itself by limiting its needs and its range, but when the environment is rich, satisfying needs easily, the organism will tend to expand its range and abilities."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Organism&#39;s Adaptive Capacity in Rich vs. Poor Environments</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In every circumstance, adaptive metabolism is occurring in an organism, and when the environment is unfavorable, the organism can defend itself by limiting its needs and its range, but when the environment is rich, satisfying needs easily, the organism will tend to expand its range and abilities."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Exploratory Reflex&#39;s Role in Functional and Energetic Expansion</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The orienting or exploratory, curiosity reflex, a need to discover and understand, becomes powerful as the other needs are met. The opportunity to exercise the exploratory reflex expands not only the organism’s functional range, but that of the cells and tissues that are exercised in exploration and discovery, and their energetic metabolism. In discovering something about the world, the organism creates something new in itself."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Exploratory Reflex&#39;s Role in Functional and Energetic Expansion</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The orienting or exploratory, curiosity reflex, a need to discover and understand, becomes powerful as the other needs are met. The opportunity to exercise the exploratory reflex expands not only the organism’s functional range, but that of the cells and tissues that are exercised in exploration and discovery, and their energetic metabolism. In discovering something about the world, the organism creates something new in itself."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactate&#39;s Influence in a Reduced Cellular State and Glucose Oxidation Inhibition</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With a limited supply of oxygen but an unlimited supply of lactate, the cell’s metabolic reactions are shifted toward a reduced, electronrich, state. This state inhibits the oxidation of glucose by blocking the enzyme pyruvate dehydrogenase, supporting the formation of lactate. These are internal processes of stressed cells, that can be interrupted when the organism provides corrective factors to restore oxidation."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactate&#39;s Influence in a Reduced Cellular State and Glucose Oxidation Inhibition</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With a limited supply of oxygen but an unlimited supply of lactate, the cell’s metabolic reactions are shifted toward a reduced, electronrich, state. This state inhibits the oxidation of glucose by blocking the enzyme pyruvate dehydrogenase, supporting the formation of lactate. These are internal processes of stressed cells, that can be interrupted when the organism provides corrective factors to restore oxidation."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolic Shifts Under Extreme Stress and Learned Helplessness</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the organism as a whole is overburdened, with stress physiology passing into the learned helplessness™ or shock states, its metabolism shifts in the direction of reductive, pseudohypoxic metabolism, in which the nervous system suppresses oxidative metabolism,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolic Shifts Under Extreme Stress and Learned Helplessness</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the organism as a whole is overburdened, with stress physiology passing into the learned helplessness™ or shock states, its metabolism shifts in the direction of reductive, pseudohypoxic metabolism, in which the nervous system suppresses oxidative metabolism,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">How Cellular Starvation Mechanics Drive Cancer&#39;s Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Cellular starvation, beginning with the tumor focus of metabolic inefficiency, increases inflammation, shifting the fuel metabolism, creating pseudohypoxia, in a vicious progression."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">How Cellular Starvation Mechanics Drive Cancer&#39;s Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Cellular starvation, beginning with the tumor focus of metabolic inefficiency, increases inflammation, shifting the fuel metabolism, creating pseudohypoxia, in a vicious progression."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Aging, Metabolic Shifts, and the Tendency Towards Cancerous Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aging itself involves a metabolic shift in the direction of cancer metabolism, with a relative inability to reduce energy expenditure in the basal, fasting state, and with increased fat oxidation, decreased glucose oxidation"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Aging, Metabolic Shifts, and the Tendency Towards Cancerous Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aging itself involves a metabolic shift in the direction of cancer metabolism, with a relative inability to reduce energy expenditure in the basal, fasting state, and with increased fat oxidation, decreased glucose oxidation"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lactate in Cancer: Disruptor or Energy Saviour?</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cancer metabolism increases the amount of lactate in the blood, increased breathing lowers the carbon dioxide in the blood (Gargaglioni, et al., 2003), and the loss of CO2 affects metabolism and physiology at all levels."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lactate in Cancer: Disruptor or Energy Saviour?</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When cancer metabolism increases the amount of lactate in the blood, increased breathing lowers the carbon dioxide in the blood (Gargaglioni, et al., 2003), and the loss of CO2 affects metabolism and physiology at all levels."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cellular Excitation&#39;s Shift to Cancer-Like Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Inescapable cellular excitation shifts cells into the characteristic cancer-like metabolism,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cellular Excitation&#39;s Shift to Cancer-Like Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Inescapable cellular excitation shifts cells into the characteristic cancer-like metabolism,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cancer Symptomatology and Anticholinergics: A Potential Pathway</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Anticholinergic drugs can alleviate some of the symptoms of cancer, as well as contributing to a restoration of normal metabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cancer Symptomatology and Anticholinergics: A Potential Pathway</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Anticholinergic drugs can alleviate some of the symptoms of cancer, as well as contributing to a restoration of normal metabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter_2.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Relevance of Metabolism in Diagnostic Medicine</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Metabolism, an organized process of chemical changes, is always relevant, but the tradition of diagnosing illnesses has developed procedures of abstraction that too often omit the most relevant processes and patterns."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Relevance of Metabolism in Diagnostic Medicine</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Metabolism, an organized process of chemical changes, is always relevant, but the tradition of diagnosing illnesses has developed procedures of abstraction that too often omit the most relevant processes and patterns."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Symphony of Life: Embracing Its Complexity</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The organism’s metabolism is a single, integrated process, in which each part has to adapt to conditions in the other parts. Our nerves contain chemical receptors that detect changes in the metabolic chemicals in the blood, permitting the organism to make adaptive changes."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Symphony of Life: Embracing Its Complexity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The organism’s metabolism is a single, integrated process, in which each part has to adapt to conditions in the other parts. Our nerves contain chemical receptors that detect changes in the metabolic chemicals in the blood, permitting the organism to make adaptive changes."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Role in Stimulating Respiration</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Every kind of cell releases carbon dioxide into the blood, in proportion to its metabolic rate, and its best known effect is to stimulate breathing, increasing the absorption of oxygen by the lungs in proportion to the metabolic rate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Role in Stimulating Respiration</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Every kind of cell releases carbon dioxide into the blood, in proportion to its metabolic rate, and its best known effect is to stimulate breathing, increasing the absorption of oxygen by the lungs in proportion to the metabolic rate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Link to Chronic Stress and Metabolic Issues</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In hypothyroidism, with lowered oxidative metabolism, the organism is never far from stress and hyperventilation, with the chronic production of lactate and ammonia. The inefficient metabolism of diabetes has similar effects."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Link to Chronic Stress and Metabolic Issues</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In hypothyroidism, with lowered oxidative metabolism, the organism is never far from stress and hyperventilation, with the chronic production of lactate and ammonia. The inefficient metabolism of diabetes has similar effects."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism and the Risk of Reductive Stress</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The weak oxidative metabolism in hypothyroidism makes it easy to enter a state of reductive stress, with a shift toward a higher concentration of NADH and lactate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism and the Risk of Reductive Stress</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The weak oxidative metabolism in hypothyroidism makes it easy to enter a state of reductive stress, with a shift toward a higher concentration of NADH and lactate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Brain-Stabilizing Effects</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since carbon dioxide has stabilizing effects in the brain, including the relaxation of blood vessels, the loss of carbon dioxide causes vasoconstriction, deficient delivery of oxygen and glucose to the brain, leading to a decreased metabolic rate."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Brain-Stabilizing Effects</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since carbon dioxide has stabilizing effects in the brain, including the relaxation of blood vessels, the loss of carbon dioxide causes vasoconstriction, deficient delivery of oxygen and glucose to the brain, leading to a decreased metabolic rate."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Complex Mechanisms in Pseudohypoxic State Perpetuation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"There are several important mechanisms that are involved in perpetuating a pseudohypoxic state, and they can operate in a single tissue or organ, as well as in a generalized way throughout the organism. The thing that is often overlooked is the coherent overlapping interaction of the structural sulfhydryl redox system (-SH, -SS-), the redox regulation of gene expression, the glycolytic and oxidative energy metabolisms, regulation of pH and ionic selectivity, osmolarity, and solvent properties, especially the hydroephobic/hydrophilic balance."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Complex Mechanisms in Pseudohypoxic State Perpetuation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"There are several important mechanisms that are involved in perpetuating a pseudohypoxic state, and they can operate in a single tissue or organ, as well as in a generalized way throughout the organism. The thing that is often overlooked is the coherent overlapping interaction of the structural sulfhydryl redox system (-SH, -SS-), the redox regulation of gene expression, the glycolytic and oxidative energy metabolisms, regulation of pH and ionic selectivity, osmolarity, and solvent properties, especially the hydroephobic/hydrophilic balance."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">ACE and Carbonic Anhydrase&#39;s Roles in Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"angiotensin converting enzyme (ACE) and carbonic anhydrase, have fundamental roles in shaping metabolism. Angiotensin II, the peptide produced by ACE, increases blood pressure and water retention and activates the pituitary and adrenal stress hormones, especially aldosterone. Both angiotensin and aldosterone activate carbonic anhydrase. It seems that any chemical that causes contraction of blood vessels also activates carbonic anhydrase"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">ACE and Carbonic Anhydrase&#39;s Roles in Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"angiotensin converting enzyme (ACE) and carbonic anhydrase, have fundamental roles in shaping metabolism. Angiotensin II, the peptide produced by ACE, increases blood pressure and water retention and activates the pituitary and adrenal stress hormones, especially aldosterone. Both angiotensin and aldosterone activate carbonic anhydrase. It seems that any chemical that causes contraction of blood vessels also activates carbonic anhydrase"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Reductionism&#39;s Limitations in Understanding Life</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Reductionists prefer to explain things in terms of molecules, genes, or cells, to avoid the implications of metabolism, but that avoidance requires the denial of the unique properties of life. To the extent that the medical industries have been built on reductionism, they have ignored many opportunities to improve human health."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Reductionism&#39;s Limitations in Understanding Life</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Reductionists prefer to explain things in terms of molecules, genes, or cells, to avoid the implications of metabolism, but that avoidance requires the denial of the unique properties of life. To the extent that the medical industries have been built on reductionism, they have ignored many opportunities to improve human health."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Individual Organs&#39; Metabolic Patterns and Environmental Interactions</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Every organ has its particular pattern of metabolism, so that it is susceptible to particular variations in the person’s history of interactions with the environment."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Individual Organs&#39; Metabolic Patterns and Environmental Interactions</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Every organ has its particular pattern of metabolism, so that it is susceptible to particular variations in the person’s history of interactions with the environment."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Nitric Oxide Induces Metabolic Shift to Glycolysis</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, even in the presence of oxygen, causes a metabolic shift to glycolysis, wastefully producing lactate from glucose"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Nitric Oxide Induces Metabolic Shift to Glycolysis</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, even in the presence of oxygen, causes a metabolic shift to glycolysis, wastefully producing lactate from glucose"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Stress-Induced Metabolic Shift and Reactive Toxin Production</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When stress causes metabolism to shift in the direction of reduction, with lactic acid formation, iron atoms react cyclically with oxygen and the reductants, producing hydroxyl radicals and other very reactive toxins."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Stress-Induced Metabolic Shift and Reactive Toxin Production</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When stress causes metabolism to shift in the direction of reduction, with lactic acid formation, iron atoms react cyclically with oxygen and the reductants, producing hydroxyl radicals and other very reactive toxins."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolic Cycle&#39;s Role in Energy Accumulation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The ability to relax and to accumulate energy and substance for differentiation corresponds to the presence of oxidative, high efficiency energy production. The intensity of the metabolic cycle, alternating activity and quiescence, sustains the complexity and intensity of life."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolic Cycle&#39;s Role in Energy Accumulation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The ability to relax and to accumulate energy and substance for differentiation corresponds to the presence of oxidative, high efficiency energy production. The intensity of the metabolic cycle, alternating activity and quiescence, sustains the complexity and intensity of life."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Sleep Deprivation&#39;s Effect on Fatty Acid Increase</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Although free fatty acids normally increase during the night, their increase is much greater when sleep is inadequate, and a diabetes-like metabolism appears, with a shift toward the oxidation of fat rather than glucose."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Sleep Deprivation&#39;s Effect on Fatty Acid Increase</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Although free fatty acids normally increase during the night, their increase is much greater when sleep is inadequate, and a diabetes-like metabolism appears, with a shift toward the oxidation of fat rather than glucose."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Lipolysis Intensity and Restorative Sleep Interference</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The intensity of lipolysis during the night is decreased during the most restorative deep sleep, but the free fatty acids themselves, by blocking oxidation of glucose to carbon dioxide, tend to increase lactate and to depress glucose metabolism, creating an inflammatory and excitatory state that interferes with deep sleep."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lipolysis Intensity and Restorative Sleep Interference</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The intensity of lipolysis during the night is decreased during the most restorative deep sleep, but the free fatty acids themselves, by blocking oxidation of glucose to carbon dioxide, tend to increase lactate and to depress glucose metabolism, creating an inflammatory and excitatory state that interferes with deep sleep."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter (1).pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Tumor Microenvironment: A Metabolic Whirlpool</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the effects of the locally disturbed metabolism create imbalances between stimuli and the ability to respond, so that even healthy cells in the tumor become unable to normalize the organization."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Tumor Microenvironment: A Metabolic Whirlpool</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the effects of the locally disturbed metabolism create imbalances between stimuli and the ability to respond, so that even healthy cells in the tumor become unable to normalize the organization."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2016 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Embryo Adjustment to Intrauterine Disturbances</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experimental embryology made it clear that development is an intentional process. An embryo can survive extreme disturbances, by adjusting its structures and metabolism, but those adjustments to difficult intrauterine conditions can sometimes make adaptations during childhood problematic."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Embryo Adjustment to Intrauterine Disturbances</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experimental embryology made it clear that development is an intentional process. An embryo can survive extreme disturbances, by adjusting its structures and metabolism, but those adjustments to difficult intrauterine conditions can sometimes make adaptations during childhood problematic."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">The Respiratory Route: Metabolism&#39;s Central Highway to Balance</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he field, the organism’s integrity, is sustained by organized respiratory metabolism, and it can be interrupted by mechanical trauma, excessive stimulation, poisons, etc., or by the absence of oxygen, of glucose, or of substances that specifically neutralize the inflammatory signals."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">The Respiratory Route: Metabolism&#39;s Central Highway to Balance</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he field, the organism’s integrity, is sustained by organized respiratory metabolism, and it can be interrupted by mechanical trauma, excessive stimulation, poisons, etc., or by the absence of oxygen, of glucose, or of substances that specifically neutralize the inflammatory signals."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Healing and the Restoration of Oxidative Metabolism Post-Injury</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If injury effectively means hypoxia with activation of estrogenic processes, then we can see that, in outline, the healing recovery process will involve various means for restoring tissue oxidative metabolism."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Healing and the Restoration of Oxidative Metabolism Post-Injury</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If injury effectively means hypoxia with activation of estrogenic processes, then we can see that, in outline, the healing recovery process will involve various means for restoring tissue oxidative metabolism."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter .pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Cholinergic System&#39;s Role in Glucose Oxidation</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the cholinergic parasympathetic system tending to reduce glucose oxidation. Exaggerated activation of this system produces shock, with extreme inhibition of respiratory metabolism, but in normal circumstances, this system’s activity increases during the night and decreases during the day."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Cholinergic System&#39;s Role in Glucose Oxidation</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the cholinergic parasympathetic system tending to reduce glucose oxidation. Exaggerated activation of this system produces shock, with extreme inhibition of respiratory metabolism, but in normal circumstances, this system’s activity increases during the night and decreases during the day."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Bodily Experiences Influencing Vitality and Physiology</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Our bodies are constantly having experiences, and generalizing from them in the way they respond; these generalized responses can limit or expand our vitality. These generalizations are expressed in our anatomy, physiology, and ecosystems, with changes in immunity, metabolism, gene expression, and behavior."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Bodily Experiences Influencing Vitality and Physiology</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Our bodies are constantly having experiences, and generalizing from them in the way they respond; these generalized responses can limit or expand our vitality. These generalizations are expressed in our anatomy, physiology, and ecosystems, with changes in immunity, metabolism, gene expression, and behavior."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Calcium and Vitamin D&#39;s Effect on Metabolism</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"a moderate increase in calcium and vitamin D reduces obesity and increases the metabolic rate, and a fair amount is kno/wn about the mechanisms involved."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Calcium and Vitamin D&#39;s Effect on Metabolism</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"a moderate increase in calcium and vitamin D reduces obesity and increases the metabolic rate, and a fair amount is kno/wn about the mechanisms involved."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 
 
-<div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
-    <b style="font-style: italic; color: #333;">Hair Loss as an Indicator of Metabolic Issues</b>
-    <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Hair loss, like obesity or hypertension, should be taken seriously, as an indication of a systemic metabolic problem. The metabolism of the hair follicle contains clues to aging, tissue regeneration, and cancer."</p>
-    <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+<div class="quote">
+    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Hair Loss as an Indicator of Metabolic Issues</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Hair loss, like obesity or hypertension, should be taken seriously, as an indication of a systemic metabolic problem. The metabolism of the hair follicle contains clues to aging, tissue regeneration, and cancer."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter.pdf</p>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
+</p>
 
-<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"></p>
-
+  </div>  
 </div>
 
 
@@ -574,7 +804,7 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a5d3173c9eee441fbdc83b606c646668335636b88b99609242361f8fac6a62dd.js" integrity="sha256-pdMXPJ7uRB&#43;9yDtgbGRmaDNWNriLmWCSQjYfj6xqYt0=" crossorigin="anonymous"></script>
+      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
