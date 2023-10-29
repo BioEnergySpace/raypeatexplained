@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,542 +104,588 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="18175215871121407006915341427148825168">
+    <div id='18175215871121407006915341427148825168' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('18175215871121407006915341427148825168')">Upvote</button>
+          <span class="upvote-counter" id="18175215871121407006915341427148825168-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="10736044108921134131044155195630652258">
+    <div id='10736044108921134131044155195630652258' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nutritional Deficits&#39; Impact on Neurological Imbalances</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The imbalances of endorphins, serotonin, catecholamines, and other nerve-regulators that have been seen in autism sometimes can be produced in adults by combined fatigue and poor nutrition, and when the livers glycogen is depleted, it can be hard to restore the balance. Prenatal influences of different types could damage connectivity, which permitting cells to survive. Normally, a large proportion of brain cells die before birth, because of limited availability of glucose."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('10736044108921134131044155195630652258')">Upvote</button>
+          <span class="upvote-counter" id="10736044108921134131044155195630652258-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="321872665388545103434980342867765764162">
+    <div id='321872665388545103434980342867765764162' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Calming Cells and Preventing Seizures</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Part of progesterones protective effect is a result of its quieting effect on cells. For example, it tends to prevent seizure activity in brain cells. During childbirth, its normal function is to act as an anesthetic."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('321872665388545103434980342867765764162')">Upvote</button>
+          <span class="upvote-counter" id="321872665388545103434980342867765764162-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="54728469832628773171134516237208193743">
+    <div id='54728469832628773171134516237208193743' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Higher Brain Levels of Certain Hormones Decrease with Age</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain contains much more pregnenolone, DHEA, and progesterone than do other organs or the blood, and these levels decrease progressively with age."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('54728469832628773171134516237208193743')">Upvote</button>
+          <span class="upvote-counter" id="54728469832628773171134516237208193743-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="97736373193345327623673714165051858444">
+    <div id='97736373193345327623673714165051858444' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Skin, Brain as Ignored Sites of Steroid Synthesis</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The skin and the brain are important sites of steroid synthesis, and they are usually ignored by endocrinologists investigating steroid hormones."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('97736373193345327623673714165051858444')">Upvote</button>
+          <span class="upvote-counter" id="97736373193345327623673714165051858444-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="230828512341855022854184241761692809430">
+    <div id='230828512341855022854184241761692809430' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s High Glucose Consumption</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain consumes about 60% of the body’s glucose when a person is physically inactive, and because of its dependence on glucose, it’s easily damaged by even short periods of hypoglycemia."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('230828512341855022854184241761692809430')">Upvote</button>
+          <span class="upvote-counter" id="230828512341855022854184241761692809430-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="312094621999394918224070801642554004058">
+    <div id='312094621999394918224070801642554004058' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Glycogen&#39;s Daily Cycle</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the amount of glycogen in the tissues has a daily cycle, especially in the brain, where it decreases during the day, and is replenished during the night."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('312094621999394918224070801642554004058')">Upvote</button>
+          <span class="upvote-counter" id="312094621999394918224070801642554004058-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="258678155422172942314228212756764421887">
+    <div id='258678155422172942314228212756764421887' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aging Increases Brain Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"As the proportion of polyunsaturated fatty acids increases with aging, some arachidonic acid becomes incorporated into the brain, and, especially during the night, the highly unsaturated fatty acids amplify the excitatory processes, including the formation of prostaglandins and other inflammation-producing compounds."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('258678155422172942314228212756764421887')">Upvote</button>
+          <span class="upvote-counter" id="258678155422172942314228212756764421887-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="281241501260123486301211686932001872576">
+    <div id='281241501260123486301211686932001872576' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('281241501260123486301211686932001872576')">Upvote</button>
+          <span class="upvote-counter" id="281241501260123486301211686932001872576-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="260781500095728407275165364249616211585">
+    <div id='260781500095728407275165364249616211585' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Larger Brain Correlates with Intelligence, Longevity</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In animals generally, a larger brain is associated not only with higher intelligence, but with greater longevity"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('260781500095728407275165364249616211585')">Upvote</button>
+          <span class="upvote-counter" id="260781500095728407275165364249616211585-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="153968583894264708754845131343365694396">
+    <div id='153968583894264708754845131343365694396' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('153968583894264708754845131343365694396')">Upvote</button>
+          <span class="upvote-counter" id="153968583894264708754845131343365694396-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="168532487867894203800927121035047724473">
+    <div id='168532487867894203800927121035047724473' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Cortex Sensitivity to Energy Levels</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The cortex of the brain, especially the frontal lobes, is the part most sensitive to energy adequacy or deprivation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('168532487867894203800927121035047724473')">Upvote</button>
+          <span class="upvote-counter" id="168532487867894203800927121035047724473-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="130092627749539330880595400884141932867">
+    <div id='130092627749539330880595400884141932867' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('130092627749539330880595400884141932867')">Upvote</button>
+          <span class="upvote-counter" id="130092627749539330880595400884141932867-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266393768001000794136453475121900385216">
+    <div id='266393768001000794136453475121900385216' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266393768001000794136453475121900385216')">Upvote</button>
+          <span class="upvote-counter" id="266393768001000794136453475121900385216-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="318386908337922639342850406549312726599">
+    <div id='318386908337922639342850406549312726599' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Overexcitation in Cancer Physiology</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"an important part of the cancer physiology is overexcitation of the brain, especially the hypothalamus,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('318386908337922639342850406549312726599')">Upvote</button>
+          <span class="upvote-counter" id="318386908337922639342850406549312726599-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="195199514646412025670832684912034151871">
+    <div id='195199514646412025670832684912034151871' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Brain-Stabilizing Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since carbon dioxide has stabilizing effects in the brain, including the relaxation of blood vessels, the loss of carbon dioxide causes vasoconstriction, deficient delivery of oxygen and glucose to the brain, leading to a decreased metabolic rate."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('195199514646412025670832684912034151871')">Upvote</button>
+          <span class="upvote-counter" id="195199514646412025670832684912034151871-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="78854275172059160271509323206720748977">
+    <div id='78854275172059160271509323206720748977' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Redox Balance Indications in Mental Disorders</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"MRI can also directly measure the redox balance, NAD/NADH, of the brain, and it has been found that schizophrenics and manic depressives have lower ratios, that is, their cells are less well oxidized. Before any mental impairment develops, people who later develop Alzheimer’s disease, experience reductive stress"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('78854275172059160271509323206720748977')">Upvote</button>
+          <span class="upvote-counter" id="78854275172059160271509323206720748977-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="161983148097654468792610786064236510092">
+    <div id='161983148097654468792610786064236510092' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Therapeutic Potentials of Carbon Dioxide Usage</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Direct use of carbon dioxide is likely to be helpful in all the situations that are known to be benefitted by acetazolamide, without the risk of allergy to that drug—traumatic brain edema, mountain sickness, osteoporosis, epilepsy, glaucoma, hyperactivity (ADHD), inflammation, polyps of the intestine, and arthritis. Diabetes, cardiomyopathy (Torella, et al., 2014), obesity (Arechederra, et al., 2013), cancer, dementia and psychosis are also likely to benefit."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('161983148097654468792610786064236510092')">Upvote</button>
+          <span class="upvote-counter" id="161983148097654468792610786064236510092-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="168695076796498296075299686606494175885">
+    <div id='168695076796498296075299686606494175885' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Role in Overall Health</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain is a factor in any sickness or injury, and if the brain malfunctions, every other system is affected."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('168695076796498296075299686606494175885')">Upvote</button>
+          <span class="upvote-counter" id="168695076796498296075299686606494175885-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="86855973472994477464676263413500158078">
+    <div id='86855973472994477464676263413500158078' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('86855973472994477464676263413500158078')">Upvote</button>
+          <span class="upvote-counter" id="86855973472994477464676263413500158078-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="331193544580042051572842923669994898168">
+    <div id='331193544580042051572842923669994898168' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('331193544580042051572842923669994898168')">Upvote</button>
+          <span class="upvote-counter" id="331193544580042051572842923669994898168-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="123205192440775188766444067083948112132">
+    <div id='123205192440775188766444067083948112132' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Intestinal Stress Effects Overlooked</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While the effects of stress on the intestine have been recognized since Hans Selye described the general adaptation syndrome (with intestinal bleeding as an early sign of stress), that hasnt been taken into account in any of the large brain trauma or stroke studies."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('123205192440775188766444067083948112132')">Upvote</button>
+          <span class="upvote-counter" id="123205192440775188766444067083948112132-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="72844644399390948325222130341576794453">
+    <div id='72844644399390948325222130341576794453' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain-Inflammation Link to Organs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The inflammatory, degenerative processes in the brain take a few hours to develop, and during these few hours the stress signals from the brain are causing changes in the intestine that lead to a systemic inflammatory state"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('72844644399390948325222130341576794453')">Upvote</button>
+          <span class="upvote-counter" id="72844644399390948325222130341576794453-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="262209393056378452265543035387607832357">
+    <div id='262209393056378452265543035387607832357' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('262209393056378452265543035387607832357')">Upvote</button>
+          <span class="upvote-counter" id="262209393056378452265543035387607832357-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="28083321356935826189942715176703975162">
+    <div id='28083321356935826189942715176703975162' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Unique Needs Post-Brain Injury</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Each person with a traumatic brain injury has unique needs that arent very compatible with the stereotyped treatments used in clinical studies, but there are common features of any brain injury, and those overlap with the features of the various kinds of shock, and of degenerative processes of particular organs."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('28083321356935826189942715176703975162')">Upvote</button>
+          <span class="upvote-counter" id="28083321356935826189942715176703975162-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="2298481502808441455390297406151363964">
+    <div id='2298481502808441455390297406151363964' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('2298481502808441455390297406151363964')">Upvote</button>
+          <span class="upvote-counter" id="2298481502808441455390297406151363964-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="151482057540771772004383710295468535005">
+    <div id='151482057540771772004383710295468535005' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Urea&#39;s Lost Role in Brain Treatment</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"50 years ago, urea was widely used to treat brain injuries, but a misunderstanding of its physical properties, and now the availability of the highly profitable vaptans, have displaced it."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('151482057540771772004383710295468535005')">Upvote</button>
+          <span class="upvote-counter" id="151482057540771772004383710295468535005-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="314400917442501216186462366416996228405">
+    <div id='314400917442501216186462366416996228405' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Bowel Influence and Parkinson’s Disease Treatments</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the bowels can influence the brain, and we have discovered a variety of things that damage the substantia nigra, producing the shaking palsy, and a few practices—drinking coffee or alcohol, smoking, using aspirin—that significantly reduce the risk. These observations suggest that there are effective ways to treat Parkinson’s disease with diet, laxatives, and anti-inflammatory substances."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('314400917442501216186462366416996228405')">Upvote</button>
+          <span class="upvote-counter" id="314400917442501216186462366416996228405-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="31362194513752899322541601260607836760">
+    <div id='31362194513752899322541601260607836760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Endotoxin&#39;s Role in Activating Inflammatory Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The endotoxin, lipopolysaccharide, has a general excitatory effect effect that activates cell inflammatory processes and damages energy production, with the mediation of cell products such as nitric oxide, carbon monoxide, serotonin, histamine, prostaglandins, estrogens, and various cytokines (interleukins and tumor necrosis factor,TNF). Some of these substances enter the blood stream from the intestine, others are produced elsewhere in the body, but some are produced in the brain itself, when endotoxin is absorbed into the brain"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('31362194513752899322541601260607836760')">Upvote</button>
+          <span class="upvote-counter" id="31362194513752899322541601260607836760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="193831933772600818856701107531117147760">
+    <div id='193831933772600818856701107531117147760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('193831933772600818856701107531117147760')">Upvote</button>
+          <span class="upvote-counter" id="193831933772600818856701107531117147760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="20085327413705602675818617035245110490">
+    <div id='20085327413705602675818617035245110490' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Functionality as a Cybernetic Control System</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"those who follow Norbert Wiener’s example, viewing the brain as a cybernetic control system, rather than as a logic machine, have a fruitful model that can represent the brain as it goes through various changes of state."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('20085327413705602675818617035245110490')">Upvote</button>
+          <span class="upvote-counter" id="20085327413705602675818617035245110490-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="257418144627891576186635423325097643539">
+    <div id='257418144627891576186635423325097643539' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('257418144627891576186635423325097643539')">Upvote</button>
+          <span class="upvote-counter" id="257418144627891576186635423325097643539-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="226467080999679848022197047345779136080">
+    <div id='226467080999679848022197047345779136080' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">In-Vitro Brain Cell Resonance with Sleep Rhythms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Groups of brain cells, removed from a brain and observed in vitro, interact in a way that’s analogous to resonance of electrons in molecules or of molecules in physical objects; their electrical activity gradually becomes coordinated, producing electrical signals resembling the EEG (electroencephalogram) signal of a brain in the state of slow wave (deep) sleep."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('226467080999679848022197047345779136080')">Upvote</button>
+          <span class="upvote-counter" id="226467080999679848022197047345779136080-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="259518591462645229443084533448477927957">
+    <div id='259518591462645229443084533448477927957' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Areas&#39; Independent Initiation of Sleep Rhythm</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A small area of the brain can go into the sleep rhythm earlier than other areas, if it has been more strongly stimulated."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('259518591462645229443084533448477927957')">Upvote</button>
+          <span class="upvote-counter" id="259518591462645229443084533448477927957-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="227275304006104270304778172840674770338">
+    <div id='227275304006104270304778172840674770338' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('227275304006104270304778172840674770338')">Upvote</button>
+          <span class="upvote-counter" id="227275304006104270304778172840674770338-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="110732348416648845315491654117204968268">
+    <div id='110732348416648845315491654117204968268' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Influence on Sleep and Cell Activity</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since thyroid hormone is needed for oxidative metabolism everywhere in the body, its deficiency makes brain cells slow to relax, delaying the onset of sleep, and can even prevent the deepest restorative sleep. Since all cells are regulated by excitatory and inhibitory processes, hypothyroidism can create a bias toward excitatory states, leading to abnormal secretion and proliferation, for example."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('110732348416648845315491654117204968268')">Upvote</button>
+          <span class="upvote-counter" id="110732348416648845315491654117204968268-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="57035602699944381300492589197165670673">
+    <div id='57035602699944381300492589197165670673' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Understanding the Onset of Sleep in the Brain</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"sleep begins in the cortex, and spreads to other parts of the brain and body."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('57035602699944381300492589197165670673')">Upvote</button>
+          <span class="upvote-counter" id="57035602699944381300492589197165670673-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="327086868731107757533640556015268313966">
+    <div id='327086868731107757533640556015268313966' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nighttime Brain Lipid Turnover and Fatty Acid Dynamics</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The rise of free fatty acids in the serum during the night coincides with a high rate of turnover of the brain’s phospholipids. Polyunsaturated fatty acids are preferentially liberated from fat stores, in proportion to their degree of unsaturation (Raclot, 2003; Conner, et al., 1996), so their interchange with the brain’s lipids means that each night the brain will become enriched with the highly unsaturated fats that are most susceptible to lipid peroxidation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('327086868731107757533640556015268313966')">Upvote</button>
+          <span class="upvote-counter" id="327086868731107757533640556015268313966-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="36537406711812546867960728633141989040">
+    <div id='36537406711812546867960728633141989040' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Societal Denial of Childhood Trauma and Brain Damage</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Frances Tustin wrote that There is persistent denial by American society of the causes of damage to millions of children who are thus traumatized and brain damaged as a consequence of cruel treatment by parents who are otherwise too busy to love and care for their babies. A study of adopted Romanian babies confirmed the observations of many people in previous decades that the impersonal treatment in orphanages damages many of the children."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('36537406711812546867960728633141989040')">Upvote</button>
+          <span class="upvote-counter" id="36537406711812546867960728633141989040-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="231828160068730570130022375631788334038">
+    <div id='231828160068730570130022375631788334038' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('231828160068730570130022375631788334038')">Upvote</button>
+          <span class="upvote-counter" id="231828160068730570130022375631788334038-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="199889833751838309622976984474348744799">
+    <div id='199889833751838309622976984474348744799' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('199889833751838309622976984474348744799')">Upvote</button>
+          <span class="upvote-counter" id="199889833751838309622976984474348744799-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="195428427116727222731374750816772140662">
+    <div id='195428427116727222731374750816772140662' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Survival Mechanisms in Stressful Environmental Interactions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"n mediating adaptation, the brain orients the organism toward aspects of the environment that are most likely to satisfy its needs, and this involves making judgments of possible future situations. In the absence of good prospects, the brain concerns itself with defensive changes, increasing the stress hormones, the fight-or-flight mechanisms, and begins to convert some of its own tissues to energy and materials needed for the survival of its essential organs, the brain, lungs, and heart."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('195428427116727222731374750816772140662')">Upvote</button>
+          <span class="upvote-counter" id="195428427116727222731374750816772140662-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="111522801759573772024343370491608456566">
+    <div id='111522801759573772024343370491608456566' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Continuous Revision and Reconstruction of Body Tissues</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the body’s tissues, including the brain, are subject to revision and reconstruction."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('111522801759573772024343370491608456566')">Upvote</button>
+          <span class="upvote-counter" id="111522801759573772024343370491608456566-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266020512220099296811173897272552557652">
+    <div id='266020512220099296811173897272552557652' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266020512220099296811173897272552557652')">Upvote</button>
+          <span class="upvote-counter" id="266020512220099296811173897272552557652-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="35275618438494586298524901929547179272">
+    <div id='35275618438494586298524901929547179272' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Effects of Parathyroid Hormone Increase on Body Tissues</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When vitamin D or calcium is deficient, or when phosphate is excessive, and in hypoglycemia and stress (Ljunghall, et al., 1984), parathyroid hormone increases. This can lead to softening of bones, and hardening of soft tissues, especially arteries, sometimes brain, skin and other organs. Parathyroid hormone increases blood pressure, even before the calcium stiffening is detected."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('35275618438494586298524901929547179272')">Upvote</button>
+          <span class="upvote-counter" id="35275618438494586298524901929547179272-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -653,9 +707,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

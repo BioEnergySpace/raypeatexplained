@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,638 +104,692 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="236397620594293569754219534130926206884">
+    <div id='236397620594293569754219534130926206884' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Positive Dietary Changes Normalize Energy Burst Fluctuations</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If the rest of your diet is good, the energy bursts from sugar should level off, and become a steady increased metabolic rate."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('236397620594293569754219534130926206884')">Upvote</button>
+          <span class="upvote-counter" id="236397620594293569754219534130926206884-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="205855384823955567887304861762754436524">
+    <div id='205855384823955567887304861762754436524' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Balancing Calorie Intake with Physical Activity Levels</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"often ate more than 5000 calories, but when Im completely sedentary for more than ten hours daily, my energy requirement is much lower. The calorie intake should be balanced to your heat production and activity."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('205855384823955567887304861762754436524')">Upvote</button>
+          <span class="upvote-counter" id="205855384823955567887304861762754436524-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="18175215871121407006915341427148825168">
+    <div id='18175215871121407006915341427148825168' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s High Energy Demands and Nutritional Needs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the brain is energetically a very expensive organ in terms of its energy requirements, and the liver has to be very efficient to meet its needs, so when there is a nutritional or hormonal problem, the problems can be especially intense. Nutritional needs for sugar, protein, vitamins, and minerals can be very high."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('18175215871121407006915341427148825168')">Upvote</button>
+          <span class="upvote-counter" id="18175215871121407006915341427148825168-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="170941206633685607633525436977185494569">
+    <div id='170941206633685607633525436977185494569' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Thyroid&#39;s Impact on Caloric Needs and Glucose Regulation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In my teens and twenties, I needed about 8000 calories per day when I was physically active, about 4000 to 5000 when I was sedentary, but after I took thyroid, I needed only about half as many calories. Thyroid is the basic regulator of blood glucose, and it causes it to be fully oxidized for energy, so that it produces ATP efficiently, on relatively few calories."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('170941206633685607633525436977185494569')">Upvote</button>
+          <span class="upvote-counter" id="170941206633685607633525436977185494569-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="118556153346733152690032610001163001770">
+    <div id='118556153346733152690032610001163001770' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Thyroid Gland&#39;s Secretion Ratio, Liver&#39;s Role in Conversion</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The thyroid gland secretes about 3 parts of thyroxin to one part of triiodothyronine, and this allows the liver to regulate thyroid function, by converting more of the T4 to the active T3 when there is an abundance of energy. Glucose is essential for the conversion"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('118556153346733152690032610001163001770')">Upvote</button>
+          <span class="upvote-counter" id="118556153346733152690032610001163001770-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="202153512637676976899783936951002324769">
+    <div id='202153512637676976899783936951002324769' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">1930&#39;s Understanding of Hormones in Organism Resistance</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"By the 1930s, it was well established that the resistance of the organism depended on the energy produced by respiration under the influence of the thyroid gland, as well as on the adrenal hormones, and that the hormones of pregnancy (especially progesterone) could substitute for the adrenal hormones"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('202153512637676976899783936951002324769')">Upvote</button>
+          <span class="upvote-counter" id="202153512637676976899783936951002324769-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="301154971818932506390766852872972338993">
+    <div id='301154971818932506390766852872972338993' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Overview of F.Z. Meerson&#39;s Stress Adaptation Research</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A contemporary researcher, F. Z. Meerson, is putting together a picture of the biological processes involved in adapting to stress, including energy production, nutrition, hormones, and changes in cell structure."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('301154971818932506390766852872972338993')">Upvote</button>
+          <span class="upvote-counter" id="301154971818932506390766852872972338993-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="84522666195494906655676728502223999215">
+    <div id='84522666195494906655676728502223999215' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Blood Glucose&#39;s Role in Cortisone Formation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the basic signal which causes cortisone to be formed is a drop in the blood glucose level. The increased energy requirement of any stress tends to cause the blood sugar to fall slightly, but hypothyroidism itself tends to depress blood sugar."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('84522666195494906655676728502223999215')">Upvote</button>
+          <span class="upvote-counter" id="84522666195494906655676728502223999215-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="142081160496527829211552202778201830079">
+    <div id='142081160496527829211552202778201830079' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Hypothyroidism&#39;s Impact on Cortisone and Inflammation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While hypothyroidism makes the body require more cortisone to sustain blood sugar and energy production, it also limits the ability to produce cortisone, so in some cases stress produces symptoms resulting from a deficiency of cortisone, including various forms of arthritis and more generalized types of chronic inflammation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('142081160496527829211552202778201830079')">Upvote</button>
+          <span class="upvote-counter" id="142081160496527829211552202778201830079-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266337462720503250188073365650570267410">
+    <div id='266337462720503250188073365650570267410' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nitric Oxide&#39;s Overlooked Mitochondrial Oxygen Inhibition</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Only an extremely small minority of publications on the physiology of nitric oxide are concerned with the fact that it inhibits mitochondrial use of oxygen for energy production"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266337462720503250188073365650570267410')">Upvote</button>
+          <span class="upvote-counter" id="266337462720503250188073365650570267410-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="306382967164107416222057194236534748703">
+    <div id='306382967164107416222057194236534748703' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Estrogen, Injury, and Energy Metabolism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The remarkable fact that both estrogen and nitric oxide are produced by practically any injury has seldom been mentioned, and their closely related effects on energy metabolism have been generally ignored."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('306382967164107416222057194236534748703')">Upvote</button>
+          <span class="upvote-counter" id="306382967164107416222057194236534748703-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="211476982939465462497424019644393234185">
+    <div id='211476982939465462497424019644393234185' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Harsh Environments: Early Reproduction and Energy Adaptation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The stresses of a harsh environment that make early reproduction advantageous, or that require accelerated tissue renewal, also favor epigenetic adaptations that reduce energy demands."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('211476982939465462497424019644393234185')">Upvote</button>
+          <span class="upvote-counter" id="211476982939465462497424019644393234185-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="329175630105859839283833929845742661819">
+    <div id='329175630105859839283833929845742661819' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">The Consequences of Impaired Glucose Oxidation and Shift to Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the oxidation of glucose is impaired, with fatty acids being oxidized for energy, there is usually a decrease in the overall metabolic rate, as well as a shift toward a more reductive biochemistry. A"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('329175630105859839283833929845742661819')">Upvote</button>
+          <span class="upvote-counter" id="329175630105859839283833929845742661819-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="289414842171798775516300610320839113079">
+    <div id='289414842171798775516300610320839113079' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Revisiting the Warburg Effect: Glycolysis and Cancer Metabolism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"t an extreme, the reductive energy derived from aerobic glycolysis can be consumed by the synthesis of fat, permitting glycolysis to proceed, and this can lead to cancer cells that oxidize fatty acids for energy, while converting glucose to fats and lactic acid."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('289414842171798775516300610320839113079')">Upvote</button>
+          <span class="upvote-counter" id="289414842171798775516300610320839113079-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="166373647713124952822081748131753812721">
+    <div id='166373647713124952822081748131753812721' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nitric Oxide&#39;s Indirect Heart Activity via Parasympathetics</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide has an action on the heart that isnt directly related to the blood vessels. When the parasympathetic nerves act on the heart, slowing and weakening its contractions, they are releasing nitric oxide, which reduces the hearts oxygen consumption as well as its energy production."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('166373647713124952822081748131753812721')">Upvote</button>
+          <span class="upvote-counter" id="166373647713124952822081748131753812721-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="38840065532208721578457433432678108569">
+    <div id='38840065532208721578457433432678108569' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Restoration by Inhibiting Energy-Limiting Systems</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"During aging and many stress-induced conditions, it can be therapeutic to use substances that block our energy-limiting systems, to permit restoration of full energy production."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('38840065532208721578457433432678108569')">Upvote</button>
+          <span class="upvote-counter" id="38840065532208721578457433432678108569-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="21039407330979909452502761232915164732">
+    <div id='21039407330979909452502761232915164732' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Continuous Energy Demand in Cellular Restructuring Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Most of its energy is used for a constant restructuring process—it never stops its developmental processes, though their intensity decreases with age."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('21039407330979909452502761232915164732')">Upvote</button>
+          <span class="upvote-counter" id="21039407330979909452502761232915164732-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="27180620775214776744246910228782836520">
+    <div id='27180620775214776744246910228782836520' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Unraveling the Complexities of Fat and Carbohydrate Metabolism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When fats are oxidized instead of glucose, more oxygen is needed to produce the same amount of energy, and less carbon dioxide is produced."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('27180620775214776744246910228782836520')">Upvote</button>
+          <span class="upvote-counter" id="27180620775214776744246910228782836520-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="126548811251221105668789584764640956345">
+    <div id='126548811251221105668789584764640956345' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Carbon Dioxide&#39;s Dual Role in Oxidative Energy Production</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Carbon dioxide is both a product of, and an activator of, oxidative energy production,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('126548811251221105668789584764640956345')">Upvote</button>
+          <span class="upvote-counter" id="126548811251221105668789584764640956345-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="213724824495454285524009732916097209175">
+    <div id='213724824495454285524009732916097209175' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Antagonism Towards Other Steroid Hormones</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone’s effects are antagonistic to the effects of the other major steroid hormones, especially estrogen, cortisol, and aldosterone. Those hormones interfere with energy metabolism, specifically with the oxidation of glucose."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('213724824495454285524009732916097209175')">Upvote</button>
+          <span class="upvote-counter" id="213724824495454285524009732916097209175-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="153968583894264708754845131343365694396">
+    <div id='153968583894264708754845131343365694396' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('153968583894264708754845131343365694396')">Upvote</button>
+          <span class="upvote-counter" id="153968583894264708754845131343365694396-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="168532487867894203800927121035047724473">
+    <div id='168532487867894203800927121035047724473' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain Cortex Sensitivity to Energy Levels</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The cortex of the brain, especially the frontal lobes, is the part most sensitive to energy adequacy or deprivation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('168532487867894203800927121035047724473')">Upvote</button>
+          <span class="upvote-counter" id="168532487867894203800927121035047724473-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="118816117450553904431751684258666439845">
+    <div id='118816117450553904431751684258666439845' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Protective Roles of Progesterone During High-Energy States</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during constructive exploration, energy is abundant, and cells with the highest energy needs are protected by progesterone, testosterone, DHEA, and other steroids."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('118816117450553904431751684258666439845')">Upvote</button>
+          <span class="upvote-counter" id="118816117450553904431751684258666439845-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="11809570286221523733311501003971912002">
+    <div id='11809570286221523733311501003971912002' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Cell Structure: Conductivity in Energy Flow and Function</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he explained that he saw cell structure as an integral conductive/semiconductive system, and cellular movement and other functions, as consequences of the flow of energy through that system."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('11809570286221523733311501003971912002')">Upvote</button>
+          <span class="upvote-counter" id="11809570286221523733311501003971912002-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="169831237226420289857127836054644091648">
+    <div id='169831237226420289857127836054644091648' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Flow Dependence on Systemic Conductive Conditions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The way energy flows through a system depends on the conductive and catalytic condition of the system, and the condition of the system depends on the flow of energy."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('169831237226420289857127836054644091648')">Upvote</button>
+          <span class="upvote-counter" id="169831237226420289857127836054644091648-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="129914792563421182607156531675641004180">
+    <div id='129914792563421182607156531675641004180' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Cellular Stress: Energy Production&#39;s Failure to Compensate</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When a cell is stressed, stimulated beyond its ability to respond with increased respiration to produce the energy needed to return to its resting state, the stress itself is a relatively reducing state,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('129914792563421182607156531675641004180')">Upvote</button>
+          <span class="upvote-counter" id="129914792563421182607156531675641004180-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="289195028468271195940226997174983427466">
+    <div id='289195028468271195940226997174983427466' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Lactate&#39;s Bridging Role in Metabolism and Stress Response</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reduced state leads to increased production of lactate, which produces enough energy to keep the cell alive, but the lactate contributes to the stressed redox shift in the cell that produces it, as well as in the surrounding cells."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('289195028468271195940226997174983427466')">Upvote</button>
+          <span class="upvote-counter" id="289195028468271195940226997174983427466-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="335164580872633058962682461921880520561">
+    <div id='335164580872633058962682461921880520561' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aging, Metabolic Shifts, and the Tendency Towards Cancerous Metabolism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aging itself involves a metabolic shift in the direction of cancer metabolism, with a relative inability to reduce energy expenditure in the basal, fasting state, and with increased fat oxidation, decreased glucose oxidation"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('335164580872633058962682461921880520561')">Upvote</button>
+          <span class="upvote-counter" id="335164580872633058962682461921880520561-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="135894069077208361897122631829837514813">
+    <div id='135894069077208361897122631829837514813' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Information Loss as a Theory of Aging and Death</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The substitution of information for energy, the abstraction of the world, led to theories of aging and death of organisms as resulting from the inevitable, entropic, loss of information, the degradation of DNA through somatic mutations, produced by oxidative damage, and to a theory of the fate of the universe as an entropic heat death."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('135894069077208361897122631829837514813')">Upvote</button>
+          <span class="upvote-counter" id="135894069077208361897122631829837514813-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="330693961807345843656845662248094824311">
+    <div id='330693961807345843656845662248094824311' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">CO2&#39;s Role in Stabilizing Energy Production Systems</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Between its formation and its exhalation, CO2 participates in many essential processes, including the stabilization of the energy producing system."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('330693961807345843656845662248094824311')">Upvote</button>
+          <span class="upvote-counter" id="330693961807345843656845662248094824311-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="157298506977823156123870343041263956718">
+    <div id='157298506977823156123870343041263956718' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Reductive Stress Triggers Restorative Cellular Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Reductive stress activates multiple layers of restorative processes (alternatives to the protective functions of carbon dioxide) to stimulate breathing, increase circulation, provide energy and materials for renewing cell structures. Prostaglandins, cytokines, estrogen, and nitric oxide are produced in coordinated ways, and cellular behaviors are changed defensively. The structures of the cell skeleton are modified, as the reductive chemistry changes protein disulfides to sulfhydryls, changing shapes and, most importantly, the solvent properties of the cell material."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('157298506977823156123870343041263956718')">Upvote</button>
+          <span class="upvote-counter" id="157298506977823156123870343041263956718-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="117032151074169476144974749365982880108">
+    <div id='117032151074169476144974749365982880108' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Deprivation&#39;s Immediate Effects on Cellular Health</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Energy deprivation, caused by insufficient glucose or oxygen, causes immediate swelling of cells, and is associated with excitation; the ammonia associated with energy deprivation and excess excitation contributes to swelling"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('117032151074169476144974749365982880108')">Upvote</button>
+          <span class="upvote-counter" id="117032151074169476144974749365982880108-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="204746232735334241622659403581400533559">
+    <div id='204746232735334241622659403581400533559' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Complex Mechanisms in Pseudohypoxic State Perpetuation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"There are several important mechanisms that are involved in perpetuating a pseudohypoxic state, and they can operate in a single tissue or organ, as well as in a generalized way throughout the organism. The thing that is often overlooked is the coherent overlapping interaction of the structural sulfhydryl redox system (-SH, -SS-), the redox regulation of gene expression, the glycolytic and oxidative energy metabolisms, regulation of pH and ionic selectivity, osmolarity, and solvent properties, especially the hydroephobic/hydrophilic balance."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('204746232735334241622659403581400533559')">Upvote</button>
+          <span class="upvote-counter" id="204746232735334241622659403581400533559-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="50857537051768868734445582368627104049">
+    <div id='50857537051768868734445582368627104049' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Alkaline Shift&#39;s Impact on Cellular Excitation and Energy</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The alkaline shift in pH (the shift that becomes chronic in cancer cells) increases the excitation and energy expenditure of any type of cell."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('50857537051768868734445582368627104049')">Upvote</button>
+          <span class="upvote-counter" id="50857537051768868734445582368627104049-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="2719673328321001810044582008096318650">
+    <div id='2719673328321001810044582008096318650' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Common Shifts in Chronic, Degenerative Conditions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"These shifts toward pseudohypoxia, alkalinity, excitation, water retention, and inefficient energy production can be seen, either locally or systemically, in all of the chronic and degenerative conditions that are now known to involve inflammation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('2719673328321001810044582008096318650')">Upvote</button>
+          <span class="upvote-counter" id="2719673328321001810044582008096318650-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="262209393056378452265543035387607832357">
+    <div id='262209393056378452265543035387607832357' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('262209393056378452265543035387607832357')">Upvote</button>
+          <span class="upvote-counter" id="262209393056378452265543035387607832357-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="31362194513752899322541601260607836760">
+    <div id='31362194513752899322541601260607836760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Endotoxin&#39;s Role in Activating Inflammatory Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The endotoxin, lipopolysaccharide, has a general excitatory effect effect that activates cell inflammatory processes and damages energy production, with the mediation of cell products such as nitric oxide, carbon monoxide, serotonin, histamine, prostaglandins, estrogens, and various cytokines (interleukins and tumor necrosis factor,TNF). Some of these substances enter the blood stream from the intestine, others are produced elsewhere in the body, but some are produced in the brain itself, when endotoxin is absorbed into the brain"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('31362194513752899322541601260607836760')">Upvote</button>
+          <span class="upvote-counter" id="31362194513752899322541601260607836760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="271432451308178504358556016373129878157">
+    <div id='271432451308178504358556016373129878157' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">The Diverse Influences and Impact of Nitric Oxide</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Nitric oxide, like endotoxin and rotenone, is a powerful inhibitor of mitochondrial respiration. Endotoxin and other harmful stimuli can increase the formation of nitric oxide, but it’s also produced in the normal excitatory processes of nerves, and with an excess of excitation relative to energy production and inhibitory influences, it can become the central agent of excitotoxicity."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('271432451308178504358556016373129878157')">Upvote</button>
+          <span class="upvote-counter" id="271432451308178504358556016373129878157-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="218271584229322837450522156683690196738">
+    <div id='218271584229322837450522156683690196738' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Hypoglycemia Inducing Excitotoxicity via Nitric Oxide</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Hypoglycemia activates the excitatory glutamatergic system, leading to increased nitric oxide, which, in the presence of an energy deficit, produces excitotoxicity."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('218271584229322837450522156683690196738')">Upvote</button>
+          <span class="upvote-counter" id="218271584229322837450522156683690196738-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="155798572713127118512263834571756557409">
+    <div id='155798572713127118512263834571756557409' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Imbalance in Progressive Neurodegenerative Diseases</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"a degenerative disease such as Parkinson’s disease involves a progressive inability to relax; energy continues to be spent faster than it can be restored."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('155798572713127118512263834571756557409')">Upvote</button>
+          <span class="upvote-counter" id="155798572713127118512263834571756557409-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="248449343956583077209140789784966188985">
+    <div id='248449343956583077209140789784966188985' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Metabolic Cycle&#39;s Role in Energy Accumulation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The ability to relax and to accumulate energy and substance for differentiation corresponds to the presence of oxidative, high efficiency energy production. The intensity of the metabolic cycle, alternating activity and quiescence, sustains the complexity and intensity of life."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('248449343956583077209140789784966188985')">Upvote</button>
+          <span class="upvote-counter" id="248449343956583077209140789784966188985-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="257418144627891576186635423325097643539">
+    <div id='257418144627891576186635423325097643539' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Metabolic Shifts During Sleep in Organisms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The whole organism sleeps, though the brain regulates the process. In some aspects of its metabolism, especially the turnover of phospholipids, the brain is very active during sleep, but its energy consumption decreases, and it causes the skeletal muscles to relax, reducing their consumption of glucose."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('257418144627891576186635423325097643539')">Upvote</button>
+          <span class="upvote-counter" id="257418144627891576186635423325097643539-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="221909215910834720711727968703885271899">
+    <div id='221909215910834720711727968703885271899' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Deficiency Leading to Cellular Over-Excitability</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Although nerves and muscles are called excitable cells, they work best when they aren’t too excitable, and fatigue, or interference with their energy supply, makes them too excitabl"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('221909215910834720711727968703885271899')">Upvote</button>
+          <span class="upvote-counter" id="221909215910834720711727968703885271899-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="81775322046698116859166031930704856952">
+    <div id='81775322046698116859166031930704856952' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Shortage Causes Seizures and Vascular Spasms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A deficiency of energy, from either hypoglycemia or hypoxia, makes nerves and muscles too excitable, producing seizures and vascular spasms."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('81775322046698116859166031930704856952')">Upvote</button>
+          <span class="upvote-counter" id="81775322046698116859166031930704856952-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="122816311321055827226050697791177124907">
+    <div id='122816311321055827226050697791177124907' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nerve Cells as Electrical Sinks During Respiration</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When a nerve cell is using oxygen to produce energy, it becomes much more electrically charged than other cells, becoming an electron sink. That causes the head to have an electrically positive polarity, relative to other parts of the body."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('122816311321055827226050697791177124907')">Upvote</button>
+          <span class="upvote-counter" id="122816311321055827226050697791177124907-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="227275304006104270304778172840674770338">
+    <div id='227275304006104270304778172840674770338' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">High-Energy Brain States and Muscle ATP Content</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The electrical and metabolic properties of this high energy resting state of the brain can be seen in a healthy skeletal muscle, which has a high ATP content, and relaxes immediately after stimulation and contraction. If the ATP is depleted by prolonged intense stimulation, or if it isn’t replenished quickly enough, because of hypothyroidism, the relaxation is very slow, leading to cramping."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('227275304006104270304778172840674770338')">Upvote</button>
+          <span class="upvote-counter" id="227275304006104270304778172840674770338-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="231828160068730570130022375631788334038">
+    <div id='231828160068730570130022375631788334038' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Energy Use in Adaptation and Simplification</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain has an extremely high metabolic rate, using energy to adapt to the constant inflow of sensory information from the body and its surroundings. To the extent that it lacks energy, it reduces and simplifies. With full energy, it builds a continuing model of itself and the things it interacts with, each of which is a process. In a state of deficient mental energy, things become categories rather than processes, and they don’t occupy a place in an ongoing life story."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('231828160068730570130022375631788334038')">Upvote</button>
+          <span class="upvote-counter" id="231828160068730570130022375631788334038-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="24768143173484395001310371784466970486">
+    <div id='24768143173484395001310371784466970486' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Energy Deficit Making Cells Prone to Damage</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"‘When energy is deficient, cells are susceptible to damage from normal levels of stimulation. Restraining excitatory reactions is at least protective, and it often improves functioning."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('24768143173484395001310371784466970486')">Upvote</button>
+          <span class="upvote-counter" id="24768143173484395001310371784466970486-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="336473735872415650941108349363883551951">
+    <div id='336473735872415650941108349363883551951' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('336473735872415650941108349363883551951')">Upvote</button>
+          <span class="upvote-counter" id="336473735872415650941108349363883551951-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="334976689876384107919729670825934427026">
+    <div id='334976689876384107919729670825934427026' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Chronic Inflammation and Degeneration in Resource-Limited Organisms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"if the organism lacks the necessary resources of substance and energy, the distortion of the field persists, potentially aggravating the deficiencies, leading to a state of chronic inflammation and degeneration. When there is no injury, the same signals guide the continuing processes of renewal."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('334976689876384107919729670825934427026')">Upvote</button>
+          <span class="upvote-counter" id="334976689876384107919729670825934427026-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="195428427116727222731374750816772140662">
+    <div id='195428427116727222731374750816772140662' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Survival Mechanisms in Stressful Environmental Interactions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"n mediating adaptation, the brain orients the organism toward aspects of the environment that are most likely to satisfy its needs, and this involves making judgments of possible future situations. In the absence of good prospects, the brain concerns itself with defensive changes, increasing the stress hormones, the fight-or-flight mechanisms, and begins to convert some of its own tissues to energy and materials needed for the survival of its essential organs, the brain, lungs, and heart."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('195428427116727222731374750816772140662')">Upvote</button>
+          <span class="upvote-counter" id="195428427116727222731374750816772140662-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266044726643441437258731347570315145788">
+    <div id='266044726643441437258731347570315145788' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Bodily Experiences Influencing Vitality and Physiology</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Our bodies are constantly having experiences, and generalizing from them in the way they respond; these generalized responses can limit or expand our vitality. These generalizations are expressed in our anatomy, physiology, and ecosystems, with changes in immunity, metabolism, gene expression, and behavior."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266044726643441437258731347570315145788')">Upvote</button>
+          <span class="upvote-counter" id="266044726643441437258731347570315145788-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266020512220099296811173897272552557652">
+    <div id='266020512220099296811173897272552557652' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Substance-Induced Brain Growth and Efficient Energy Use</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"-progesterone, glucose, or glycine which was converted into glucose (Zamenhof and Ahmad, 1979)—increased brain growth, by increasing either the supply of energy or the ability to use energy effectively"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266020512220099296811173897272552557652')">Upvote</button>
+          <span class="upvote-counter" id="266020512220099296811173897272552557652-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -749,9 +811,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

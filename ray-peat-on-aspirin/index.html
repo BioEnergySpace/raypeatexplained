@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,146 +104,159 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="297215914543869325743972668177608593385">
+    <div id='297215914543869325743972668177608593385' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aspirin&#39;s Increased Vitamin K Requirement</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"aspirin makes you need more vitamin K, even when you arent using much. People who use aspirin for arthritis or cancer often take several grams a day."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('297215914543869325743972668177608593385')">Upvote</button>
+          <span class="upvote-counter" id="297215914543869325743972668177608593385-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="189252716091530605242181211066207867224">
+    <div id='189252716091530605242181211066207867224' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Germicidal Properties of Aspirin</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aspirin has a mild germicidal effect."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('189252716091530605242181211066207867224')">Upvote</button>
+          <span class="upvote-counter" id="189252716091530605242181211066207867224-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="273555625573274037097122030278908870892">
+    <div id='273555625573274037097122030278908870892' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Reducing Aspirin&#39;s Stomach Reactions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"I dont know anyone who has a stomach reaction when they dissolve the aspirin in hot water, and then take it with food."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('273555625573274037097122030278908870892')">Upvote</button>
+          <span class="upvote-counter" id="273555625573274037097122030278908870892-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="301309985371683882043873699877126115981">
+    <div id='301309985371683882043873699877126115981' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Defense Mechanisms Against Nitric Oxide: The Nutritional Angle</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the most important anti-nitric oxide defenses are progesterone, vitamin E, vitamin K, vitamin A, niacinamide, coffee, aspirin, and foods containing flavonoids, terpenoids, polyphenols, and sterols. Grass-fed milk contains a variety of polyphenols. Citrus fruits, many tropical fruits (e.g., guavas, longans, and lychees), and cooked mushrooms are good sources of apigenin, naringenin and related chemicals."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('301309985371683882043873699877126115981')">Upvote</button>
+          <span class="upvote-counter" id="301309985371683882043873699877126115981-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="203405385207870461799895207640524024298">
+    <div id='203405385207870461799895207640524024298' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aspirin and Inflammation: The Lesser-Known Pro-Oxidant Effect</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The fact that the inflammation-promoting enzymes, aromatase, cyclooxygenase, and nitric oxide synthase, which are inhibited by an oxidizing environment are also inhibited by aspirin, would strongly suggest that aspirin and salicylic acid are functioning as pro-oxidants."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('203405385207870461799895207640524024298')">Upvote</button>
+          <span class="upvote-counter" id="203405385207870461799895207640524024298-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="143681376810050209856803262218700973777">
+    <div id='143681376810050209856803262218700973777' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Combatting Oxidative Damage with Aspirin and Bioflavonoids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"xidative damage, such as lipid peroxidation, is a seriously harmful phenomenon. Aspirin and the bioflavonoids are powerfully protective against lipid peroxidation and the DNA mutations and protein damage triggered by the most toxic free radical, the hydroxyl radical."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('143681376810050209856803262218700973777')">Upvote</button>
+          <span class="upvote-counter" id="143681376810050209856803262218700973777-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="2081979262632938366327075462690715321">
+    <div id='2081979262632938366327075462690715321' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">The Controversy Surrounding Aspirin in Medical Fields</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aspirin is just one of many cheap generic substances that have been attacked frequently in the medical journals."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('2081979262632938366327075462690715321')">Upvote</button>
+          <span class="upvote-counter" id="2081979262632938366327075462690715321-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="56677687712885746756803687941841888198">
+    <div id='56677687712885746756803687941841888198' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">List of Various Medications and Supplements</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Acetazolamide, agmatine, amantadine, aminoguanidine, antibiotics (minocycline, tetracycline, etc.), antihistamines, aspirin, bromocriptine, DCA, emodin, glucagon, glucose, memantine, methylene blue, niacinamide, T3 (triiodothyroinne), vitamin D, vitamin E."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('56677687712885746756803687941841888198')">Upvote</button>
+          <span class="upvote-counter" id="56677687712885746756803687941841888198-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="107952215398016344196042989058452641218">
+    <div id='107952215398016344196042989058452641218' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Neuroprotective Effects of Caffeine, Aspirin, Melatonin</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"caffeine, aspirin, and melatonin protect the substantial nigra against rotenone"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('107952215398016344196042989058452641218')">Upvote</button>
+          <span class="upvote-counter" id="107952215398016344196042989058452641218-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="311092137000151989020935140491842655505">
+    <div id='311092137000151989020935140491842655505' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Protective Factors in Parkinson’s Broadly Counteract Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"things that are likely to be protective in Parkinson’s disease are broadly protective against estrogen and the inflammatorydegenerative processes: Progesterone, minocycline and other anti-inflammatory antibiotics, agmatine, aspirin, coffee, niacinamide, citrus flavonoids, vitamin D, ACE inhibitors, fibrous-antiseptic foods."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('311092137000151989020935140491842655505')">Upvote</button>
+          <span class="upvote-counter" id="311092137000151989020935140491842655505-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="15558365198819861612103438080190015933">
+    <div id='15558365198819861612103438080190015933' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('15558365198819861612103438080190015933')">Upvote</button>
+          <span class="upvote-counter" id="15558365198819861612103438080190015933-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="178771379658775288295487250485400660771">
+    <div id='178771379658775288295487250485400660771' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Compounds That Mitigate Carbon Monoxide&#39;s Adverse Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Safe things that lower carbon monoxide or protect against its effects include methylene blue, caffeine, aspirin, progesterone, and red light."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('178771379658775288295487250485400660771')">Upvote</button>
+          <span class="upvote-counter" id="178771379658775288295487250485400660771-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -257,9 +278,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,122 +104,133 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="154062430959599098772498350245570984133">
+    <div id='154062430959599098772498350245570984133' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Quick Recovery from Stress with Low PUFA</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"a person relatively free of PUFA will be likely to recover very quickly from prolonged stress."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('154062430959599098772498350245570984133')">Upvote</button>
+          <span class="upvote-counter" id="154062430959599098772498350245570984133-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="190555124241704107610087799422680224606">
+    <div id='190555124241704107610087799422680224606' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Factors Disrupting Respiratory Enzyme and PUFA Balance</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"tamin E deficiency or PUFA excess, by ionizing radiation, by oxygen deprivation, or by aging. All of these conditions involved interference with, or decreased activity of, the crucial respiratory enzyme, cytochrome C oxidase."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('190555124241704107610087799422680224606')">Upvote</button>
+          <span class="upvote-counter" id="190555124241704107610087799422680224606-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="258678155422172942314228212756764421887">
+    <div id='258678155422172942314228212756764421887' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aging Increases Brain Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"As the proportion of polyunsaturated fatty acids increases with aging, some arachidonic acid becomes incorporated into the brain, and, especially during the night, the highly unsaturated fatty acids amplify the excitatory processes, including the formation of prostaglandins and other inflammation-producing compounds."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('258678155422172942314228212756764421887')">Upvote</button>
+          <span class="upvote-counter" id="258678155422172942314228212756764421887-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="262209393056378452265543035387607832357">
+    <div id='262209393056378452265543035387607832357' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Toxicity of Free Fatty Acids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"free fatty acids, especially when they are polyunsaturated, are toxic to the brain, increasing inflammation and blocking energy metabolism."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('262209393056378452265543035387607832357')">Upvote</button>
+          <span class="upvote-counter" id="262209393056378452265543035387607832357-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="329378124998639305818802254789220716464">
+    <div id='329378124998639305818802254789220716464' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aging and PUFA Accumulation Increase Prostaglandin Production</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"As our tissues accumulate polyunsaturated fats with aging, the production of prostaglandins becomes greater, and the balance is less likely to be fully repaired."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('329378124998639305818802254789220716464')">Upvote</button>
+          <span class="upvote-counter" id="329378124998639305818802254789220716464-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="193831933772600818856701107531117147760">
+    <div id='193831933772600818856701107531117147760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('193831933772600818856701107531117147760')">Upvote</button>
+          <span class="upvote-counter" id="193831933772600818856701107531117147760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="327086868731107757533640556015268313966">
+    <div id='327086868731107757533640556015268313966' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Nighttime Brain Lipid Turnover and Fatty Acid Dynamics</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The rise of free fatty acids in the serum during the night coincides with a high rate of turnover of the brain’s phospholipids. Polyunsaturated fatty acids are preferentially liberated from fat stores, in proportion to their degree of unsaturation (Raclot, 2003; Conner, et al., 1996), so their interchange with the brain’s lipids means that each night the brain will become enriched with the highly unsaturated fats that are most susceptible to lipid peroxidation."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('327086868731107757533640556015268313966')">Upvote</button>
+          <span class="upvote-counter" id="327086868731107757533640556015268313966-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="207772212253275866054449298463920993980">
+    <div id='207772212253275866054449298463920993980' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('207772212253275866054449298463920993980')">Upvote</button>
+          <span class="upvote-counter" id="207772212253275866054449298463920993980-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="26873130958472302344657812311742547674">
+    <div id='26873130958472302344657812311742547674' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">PUFA Accumulation Intensifies Cellular Stress Responses</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the accumulating PUFA function as amplifiers of the cellular stress reactions."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('26873130958472302344657812311742547674')">Upvote</button>
+          <span class="upvote-counter" id="26873130958472302344657812311742547674-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="246094207388171874343009489208522152445">
+    <div id='246094207388171874343009489208522152445' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Harmful Substances in Leaves Impeding Nutrient Digestion</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Leaves contain many substances that can be harmful and that interfere with the digestion of protein and other nutrients, for example tannins and polyunsaturated fatty acids."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('246094207388171874343009489208522152445')">Upvote</button>
+          <span class="upvote-counter" id="246094207388171874343009489208522152445-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -233,9 +252,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

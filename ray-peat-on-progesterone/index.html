@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,542 +104,588 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="223752561876905525846548129794667612686">
+    <div id='223752561876905525846548129794667612686' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Personal Experience: Progesterone and DHEA Affect on Melanomas</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"I had some probable melanomas years ago, and I found that progesterone and DHEA and increased thyroid caused them to disappear quickly."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('223752561876905525846548129794667612686')">Upvote</button>
+          <span class="upvote-counter" id="223752561876905525846548129794667612686-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="119383145614590044101664042108301874762">
+    <div id='119383145614590044101664042108301874762' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Potential Anticancer Properties Underexplored</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone has a wide spectrum of anticancer activity, but as far as I know only synthetic progestins have been used medically. Although I used myself it on things that appeared to be very active melanomas, I usually recommend a slightly hyperthyroid state for helping to control it."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('119383145614590044101664042108301874762')">Upvote</button>
+          <span class="upvote-counter" id="119383145614590044101664042108301874762-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="25556843327975924999487732901964622118">
+    <div id='25556843327975924999487732901964622118' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Non-Suppressive Effect on Its Synthesis</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The fact that progesterone (and probably pregnenolone) stimulates its own synthesis means that taking it does not suppress the bodys ability to synthesize it, as happens with cortisol. Sometimes, one dose or a few doses can restore the bodys ability to produce enough of its own."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('25556843327975924999487732901964622118')">Upvote</button>
+          <span class="upvote-counter" id="25556843327975924999487732901964622118-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="276963308038876641881986052063491176989">
+    <div id='276963308038876641881986052063491176989' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Enhancing Thyroid Function Against Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone also allows the thyroid gland to secrete its hormones, especially when the thyroid function has been inhibited by estrogen"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('276963308038876641881986052063491176989')">Upvote</button>
+          <span class="upvote-counter" id="276963308038876641881986052063491176989-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="189304082608496927187623664820730901662">
+    <div id='189304082608496927187623664820730901662' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">The Foundational Role of Progesterone and DHEA</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone and DHEA are the precursors for the other more specialized steroid hormones, including cortisol, aldosterone (sodium-retaining hormone), estrogen, and testosterone."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('189304082608496927187623664820730901662')">Upvote</button>
+          <span class="upvote-counter" id="189304082608496927187623664820730901662-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="268042656668204158655202763509923781721">
+    <div id='268042656668204158655202763509923781721' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Significant Function During Pregnancy</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"During pregnancy, very large amounts of progesterone are made. It protects and stabilizes practically all functions of both the mother and the fetus."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('268042656668204158655202763509923781721')">Upvote</button>
+          <span class="upvote-counter" id="268042656668204158655202763509923781721-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="321872665388545103434980342867765764162">
+    <div id='321872665388545103434980342867765764162' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Calming Cells and Preventing Seizures</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Part of progesterones protective effect is a result of its quieting effect on cells. For example, it tends to prevent seizure activity in brain cells. During childbirth, its normal function is to act as an anesthetic."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('321872665388545103434980342867765764162')">Upvote</button>
+          <span class="upvote-counter" id="321872665388545103434980342867765764162-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="54728469832628773171134516237208193743">
+    <div id='54728469832628773171134516237208193743' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Higher Brain Levels of Certain Hormones Decrease with Age</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The brain contains much more pregnenolone, DHEA, and progesterone than do other organs or the blood, and these levels decrease progressively with age."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('54728469832628773171134516237208193743')">Upvote</button>
+          <span class="upvote-counter" id="54728469832628773171134516237208193743-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="103224246697061281364459345099480791788">
+    <div id='103224246697061281364459345099480791788' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Steroids&#39; Reversal of Aging Skin and Hair Growth Restoration</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"People who studied the effects of steroids on aging skin found that the steroids which reversed structural age changes in the skin (progesterone, testosterone, pregnenolone) sometimes restored hair growth"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('103224246697061281364459345099480791788')">Upvote</button>
+          <span class="upvote-counter" id="103224246697061281364459345099480791788-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="202153512637676976899783936951002324769">
+    <div id='202153512637676976899783936951002324769' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">1930&#39;s Understanding of Hormones in Organism Resistance</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"By the 1930s, it was well established that the resistance of the organism depended on the energy produced by respiration under the influence of the thyroid gland, as well as on the adrenal hormones, and that the hormones of pregnancy (especially progesterone) could substitute for the adrenal hormones"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('202153512637676976899783936951002324769')">Upvote</button>
+          <span class="upvote-counter" id="202153512637676976899783936951002324769-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="182263618353017673542289125247089511646">
+    <div id='182263618353017673542289125247089511646' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Stress&#39;s Impact on Hormone Formation and Deficiency</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The stress which can cause a cortisone deficiency is even more likely to disturb formation of progesterone and thyroid hormone, so the fact that cortisone can relieve symptoms does not mean that it has corrected the problem."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('182263618353017673542289125247089511646')">Upvote</button>
+          <span class="upvote-counter" id="182263618353017673542289125247089511646-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="145404057032943256284725130157989936503">
+    <div id='145404057032943256284725130157989936503' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Concerns Over Administering DHEA Without Balanced Hormones</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Since DHEA can be easily metabolized into testosterone (by the skin, for example), and into estrogen, I dont think it should ever be administered alone, without an approximately natural balance of pregnenolone and progesterone."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('145404057032943256284725130157989936503')">Upvote</button>
+          <span class="upvote-counter" id="145404057032943256284725130157989936503-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="314413367231570286954744832509167707933">
+    <div id='314413367231570286954744832509167707933' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Pregnenolone as a Precursor, Implications for DHEA</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Pregnenolone is the material the body uses to form either progesterone or DHEA. Other natural hormones, including DHEA, havent been studied for so long, but the high levels which are normally present in healthy people would suggest that replacement doses, to restore those normal levels, would not be likely to produce toxic side effects."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('314413367231570286954744832509167707933')">Upvote</button>
+          <span class="upvote-counter" id="314413367231570286954744832509167707933-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="30671044315552575945226839902839730193">
+    <div id='30671044315552575945226839902839730193' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Youthfulness and Menstruation Continuation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"A gynecologist I knew had been giving his wife progesterone since she was about 40, and at 60 she was youthful looking, and still menstruating."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('30671044315552575945226839902839730193')">Upvote</button>
+          <span class="upvote-counter" id="30671044315552575945226839902839730193-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="226720192508907104552731788752077080345">
+    <div id='226720192508907104552731788752077080345' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Importance of Thyroid, Pregnenolone, Vitamin E in Fertility</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Thyroid and pregnenolone and vitamin E are as important for male fertility as thyroid and progesterone and vitamin E are for female fertility. (For example, supplementary thyroid and pregnenolone can raise a mans sperm count, by overcoming the effects of stress.)"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('226720192508907104552731788752077080345')">Upvote</button>
+          <span class="upvote-counter" id="226720192508907104552731788752077080345-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="301309985371683882043873699877126115981">
+    <div id='301309985371683882043873699877126115981' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Defense Mechanisms Against Nitric Oxide: The Nutritional Angle</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the most important anti-nitric oxide defenses are progesterone, vitamin E, vitamin K, vitamin A, niacinamide, coffee, aspirin, and foods containing flavonoids, terpenoids, polyphenols, and sterols. Grass-fed milk contains a variety of polyphenols. Citrus fruits, many tropical fruits (e.g., guavas, longans, and lychees), and cooked mushrooms are good sources of apigenin, naringenin and related chemicals."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('301309985371683882043873699877126115981')">Upvote</button>
+          <span class="upvote-counter" id="301309985371683882043873699877126115981-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="116741108474215009858680136957761515662">
+    <div id='116741108474215009858680136957761515662' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Protective Substances Against Impaired Glucose Oxidation Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Other substances that protect against the effects of hypoglycemia or impaired glucose oxidation include progesterone, caffeine, certain anesthetics including xenon, niacinamide, agmatine, carbon dioxide,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('116741108474215009858680136957761515662')">Upvote</button>
+          <span class="upvote-counter" id="116741108474215009858680136957761515662-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="281241501260123486301211686932001872576">
+    <div id='281241501260123486301211686932001872576' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain&#39;s Independent Progesterone Synthesis and Function</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"progesterone is an essential factor for nerve growth, and since the 1990s the brain has been known to synthesize it, and to maintain a local concentration of progesterone which is higher than the concentration in the blood stream."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('281241501260123486301211686932001872576')">Upvote</button>
+          <span class="upvote-counter" id="281241501260123486301211686932001872576-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="153968583894264708754845131343365694396">
+    <div id='153968583894264708754845131343365694396' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Role in Brain Energy Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It seems likely that a basic part of progesterone’s ability to protect the brain against stress is its support for the high energy mitochondrial oxidation of glucose to carbon dioxide."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('153968583894264708754845131343365694396')">Upvote</button>
+          <span class="upvote-counter" id="153968583894264708754845131343365694396-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="61974831442727179575992629817489141586">
+    <div id='61974831442727179575992629817489141586' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Metabolism&#39;s Influence on Time Perception and Behavior</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"he experience of time governs the way we behave, and our metabolism governs the way we experience time. Progesterone, as a central neurosteroid, is a crucial part of our metabolism that shapes our consciousness as it projects itself into time"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('61974831442727179575992629817489141586')">Upvote</button>
+          <span class="upvote-counter" id="61974831442727179575992629817489141586-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="118816117450553904431751684258666439845">
+    <div id='118816117450553904431751684258666439845' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Protective Roles of Progesterone During High-Energy States</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"during constructive exploration, energy is abundant, and cells with the highest energy needs are protected by progesterone, testosterone, DHEA, and other steroids."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('118816117450553904431751684258666439845')">Upvote</button>
+          <span class="upvote-counter" id="118816117450553904431751684258666439845-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="260877852811232118882834605658243302981">
+    <div id='260877852811232118882834605658243302981' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Stabilizes Cells, Enhances Metabolic Functions</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Besides directly stabilizing the internal structures of the cell, progesterone increases the ATP concentration and oxygen consumption, decreases excitatory systems and numerous inflammation-related processes, decreases intracellular calcium concentration, and increases the use of glucose, leading to increased carbon dioxide production, as well as adjusting breathing and pH."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('260877852811232118882834605658243302981')">Upvote</button>
+          <span class="upvote-counter" id="260877852811232118882834605658243302981-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="201687988112190180348290890519346300110">
+    <div id='201687988112190180348290890519346300110' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Self-Stimulating Process in Ovary Activation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"the presence of progesterone activated the ovary’s synthetic apparatus in a self stimulating process. (The negative feedback idea from cybernetics has been widely misapplied in endocrinology.)"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('201687988112190180348290890519346300110')">Upvote</button>
+          <span class="upvote-counter" id="201687988112190180348290890519346300110-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="130092627749539330880595400884141932867">
+    <div id='130092627749539330880595400884141932867' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Effect on Reticular Activating System</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The reticular activating system of the brain stem, which is responsible for waking alertness and muscle relaxation, is central to the orienting reflex, and is responsive to progesterone"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('130092627749539330880595400884141932867')">Upvote</button>
+          <span class="upvote-counter" id="130092627749539330880595400884141932867-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="266393768001000794136453475121900385216">
+    <div id='266393768001000794136453475121900385216' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Increases REM Sleep, Suggesting Continual Orienting</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"It has been suggested (Sanford, et al., 1993) that the presence of these waves in REM sleep indicates that the brain is in a state of more-or-less continual orienting. When progesterone is given during sleep, it increases the amount of REM."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('266393768001000794136453475121900385216')">Upvote</button>
+          <span class="upvote-counter" id="266393768001000794136453475121900385216-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="146948517146014497958871885525367217547">
+    <div id='146948517146014497958871885525367217547' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Enriched Environments and Progesterone Have Additive Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The pro-cognitive effects of an enriched environment and of progesterone can to some extent substitute for each other, and they are additive;"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('146948517146014497958871885525367217547')">Upvote</button>
+          <span class="upvote-counter" id="146948517146014497958871885525367217547-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="278630968073522429197367259461493018347">
+    <div id='278630968073522429197367259461493018347' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Environmental Enrichment Lowers Estrogen and Glucocorticoids</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"oth estrogen and the stress-induced glucocorticoids are reduced by environmental enrichment, allowing progesterone to function with less interference"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('278630968073522429197367259461493018347')">Upvote</button>
+          <span class="upvote-counter" id="278630968073522429197367259461493018347-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="30395703601422165220560536637164432312">
+    <div id='30395703601422165220560536637164432312' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Common Inhibitors of Carbonic Anhydrase Enzyme</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Among the common inhibitors of carbonic anhydrase are the mildly oxidizing flavonoids such as apigenin and fisetin, some polyphenols, vitamin B1, vitamin D (Mras, et al., 2012), progesterone (partly by blocking the activation by estrogen and aldosterone), and emodin."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('30395703601422165220560536637164432312')">Upvote</button>
+          <span class="upvote-counter" id="30395703601422165220560536637164432312-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="70167649316016299202969404009452601255">
+    <div id='70167649316016299202969404009452601255' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aspirin, Vitamin E, and Progesterone as Anti-Estrogenic</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"spirin, vitamin E, and progesterone can be partly understood as antiestrogenic substances,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('70167649316016299202969404009452601255')">Upvote</button>
+          <span class="upvote-counter" id="70167649316016299202969404009452601255-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="305949044635031389873140175020302443854">
+    <div id='305949044635031389873140175020302443854' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Various Substances&#39; Protective Roles Against Estrogen Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Aspirin, vitamin E, and progesterone protect against a broad spectrum of harmful factors, besides their various antagonistic effects on the estrogen system itself. One of progesterone’s major effects is to suppress or degrade the estrogen receptor."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('305949044635031389873140175020302443854')">Upvote</button>
+          <span class="upvote-counter" id="305949044635031389873140175020302443854-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="86855973472994477464676263413500158078">
+    <div id='86855973472994477464676263413500158078' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Brain Protection</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Animal studies since the 1950s have clearly showed progesterones protective, stabilizing, restorative effects on the brain, and the direct effects of progesterone on brain cells have been demonstrated in vitro."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('86855973472994477464676263413500158078')">Upvote</button>
+          <span class="upvote-counter" id="86855973472994477464676263413500158078-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="331193544580042051572842923669994898168">
+    <div id='331193544580042051572842923669994898168' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('331193544580042051572842923669994898168')">Upvote</button>
+          <span class="upvote-counter" id="331193544580042051572842923669994898168-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="245535961549484354411778515006228809261">
+    <div id='245535961549484354411778515006228809261' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Oral Progesterone: Appropriate Response to Severe Stress</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Giving progesterone orally would seem to be appropriate for any serious stress, since the intestine quickly becomes an amplifier of the inflammatory reactions."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('245535961549484354411778515006228809261')">Upvote</button>
+          <span class="upvote-counter" id="245535961549484354411778515006228809261-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="2298481502808441455390297406151363964">
+    <div id='2298481502808441455390297406151363964' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone&#39;s Protective Role</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Progesterone (and its metabolites, including allopregnanolone) protect against the harmful changes caused by a brain injury,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('2298481502808441455390297406151363964')">Upvote</button>
+          <span class="upvote-counter" id="2298481502808441455390297406151363964-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="193831933772600818856701107531117147760">
+    <div id='193831933772600818856701107531117147760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Age-Related Brain Changes Enhanced by Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"With aging, iron and the polyunsaturated fats accumulate in the brain. Estrogen slows the removal of dopamine, increasing its opportunity to react toxically with iron and highly unsaturated fats, especially arachidonic acid and DHA; it also tends to increase the formation of prostaglandins and nitric oxide. Progesterone’s opposite effects probably account for the lower prevalence of Parkinson’s disease in women than in men."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('193831933772600818856701107531117147760')">Upvote</button>
+          <span class="upvote-counter" id="193831933772600818856701107531117147760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="311092137000151989020935140491842655505">
+    <div id='311092137000151989020935140491842655505' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Protective Factors in Parkinson’s Broadly Counteract Estrogen</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"things that are likely to be protective in Parkinson’s disease are broadly protective against estrogen and the inflammatorydegenerative processes: Progesterone, minocycline and other anti-inflammatory antibiotics, agmatine, aspirin, coffee, niacinamide, citrus flavonoids, vitamin D, ACE inhibitors, fibrous-antiseptic foods."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('311092137000151989020935140491842655505')">Upvote</button>
+          <span class="upvote-counter" id="311092137000151989020935140491842655505-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="15558365198819861612103438080190015933">
+    <div id='15558365198819861612103438080190015933' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Aspirin and Progesterone&#39;s Role in Combating Insomnia</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Using aspirin at bedtime, to inhibit prostaglandin synthesis, is likely to be helpful in age related insomnia. Progesterone and vitamin E act in various ways to prevent excessive stimulation by prostaglandins."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2018 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('15558365198819861612103438080190015933')">Upvote</button>
+          <span class="upvote-counter" id="15558365198819861612103438080190015933-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="24990309017582843945739422283403239033">
+    <div id='24990309017582843945739422283403239033' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Environmental Factors Potentially Contributing to Autism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Things in the environment, or substances produced in reactions to environmental stress, that might cause autism, include prenatal and neonatal exposure to radiation, including isotopes from the power industry, bomb testing, Chernobyl, and Fukushima; exposure to air pollution, including nitrogen oxides, ozone, carbon monoxide, sulfur dioxide, and particles (Jung, et al., 2013); aluminum (Mold, et al., 2018), lead, mercury, manganese, arsenic, cadmium, chromium, manganese, and nickel (Windham, et al, 2006); acetaminophen, infections, endotoxin, exogenous and endogenous estrogens, hypothyroidism, progesterone deficiency, agmatine deficiency, serotonin excess, endogenous nitric oxide (Sweeten, et al., 2004), and vitamin D deficiency."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('24990309017582843945739422283403239033')">Upvote</button>
+          <span class="upvote-counter" id="24990309017582843945739422283403239033-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="336473735872415650941108349363883551951">
+    <div id='336473735872415650941108349363883551951' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Antiexcitotoxic Substances and Importance of CO2/Lactate Ratio</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Antiexcitotoxic substances include progesterone, memantine, minocycline, and agmatine. A high ratio of CO2 to lactate, reducing intracellular pH, is important for preventing excessive excitability. Thyroid hormone, besides directly increasing energy and the CO2/lactate ratio, tends to increase the brain’s temperature, and to increase the ratio of progesterone to estrogen."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('336473735872415650941108349363883551951')">Upvote</button>
+          <span class="upvote-counter" id="336473735872415650941108349363883551951-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="315497747873781186455134149398994332102">
+    <div id='315497747873781186455134149398994332102' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Understanding Progesterone&#39;s Antagonism</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the 1970s, after I had learned to think of progesterone as the antagonist of estrogen,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('315497747873781186455134149398994332102')">Upvote</button>
+          <span class="upvote-counter" id="315497747873781186455134149398994332102-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="300394136913661336467060490024395954238">
+    <div id='300394136913661336467060490024395954238' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Stress Affects Estrogen and Progesterone</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Injury to the ovaries, or systemic stress, tends to decrease the production of progesterone, while the body’s production of estrogen is increased."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('300394136913661336467060490024395954238')">Upvote</button>
+          <span class="upvote-counter" id="300394136913661336467060490024395954238-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="207772212253275866054449298463920993980">
+    <div id='207772212253275866054449298463920993980' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Thymus Gland Atrophy: Causes and Restorative Agents</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Some of the factors that cause atrophy of the thymus gland include cortisol and other glucocorticoid hormones, estrogen, prostaglandins, polyunsaturated fatty acids, lipid peroxidation, nitric oxide, endotoxin, hypoglycemia, and ionizing radiation. Progesterone and thyroid hormone support restoration of the thymus gland, providing protection by opposing all of those agents of atrophy. An increase of sugar in the diet can correct some of the metabolic changes of aging"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('207772212253275866054449298463920993980')">Upvote</button>
+          <span class="upvote-counter" id="207772212253275866054449298463920993980-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="199889833751838309622976984474348744799">
+    <div id='199889833751838309622976984474348744799' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Prenatal Influences on Brain Development and Adaptability</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Experiments over the last 60 years have shown that more or less glucose, carbon dioxide, warmth, and progesterone during embryonic and fetal development can affect the growth of the brain, and the brain’s way of guiding future development and adaptive ability."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('199889833751838309622976984474348744799')">Upvote</button>
+          <span class="upvote-counter" id="199889833751838309622976984474348744799-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="178771379658775288295487250485400660771">
+    <div id='178771379658775288295487250485400660771' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Compounds That Mitigate Carbon Monoxide&#39;s Adverse Effects</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Safe things that lower carbon monoxide or protect against its effects include methylene blue, caffeine, aspirin, progesterone, and red light."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('178771379658775288295487250485400660771')">Upvote</button>
+          <span class="upvote-counter" id="178771379658775288295487250485400660771-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="215172993449511951029744852511510800580">
+    <div id='215172993449511951029744852511510800580' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Milk&#39;s Components Support Efficient Energy Utilization</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Milk provides lactose, which is metabolized quickly into glucose, and small amounts of other substances, including progesterone and thyroid hormone, that favor its efficient use."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('215172993449511951029744852511510800580')">Upvote</button>
+          <span class="upvote-counter" id="215172993449511951029744852511510800580-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -653,9 +707,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

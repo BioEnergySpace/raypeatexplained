@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,158 +104,172 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="78102333123132760678893385233196350106">
+    <div id='78102333123132760678893385233196350106' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Intestinal Irritation Link to Tinnitus Through Endotoxin</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"anything that irritates the intestine can cause tinnitus by increasing endotoxin absorption."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('78102333123132760678893385233196350106')">Upvote</button>
+          <span class="upvote-counter" id="78102333123132760678893385233196350106-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="161983148097654468792610786064236510092">
+    <div id='161983148097654468792610786064236510092' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Therapeutic Potentials of Carbon Dioxide Usage</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Direct use of carbon dioxide is likely to be helpful in all the situations that are known to be benefitted by acetazolamide, without the risk of allergy to that drug—traumatic brain edema, mountain sickness, osteoporosis, epilepsy, glaucoma, hyperactivity (ADHD), inflammation, polyps of the intestine, and arthritis. Diabetes, cardiomyopathy (Torella, et al., 2014), obesity (Arechederra, et al., 2013), cancer, dementia and psychosis are also likely to benefit."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('161983148097654468792610786064236510092')">Upvote</button>
+          <span class="upvote-counter" id="161983148097654468792610786064236510092-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="331193544580042051572842923669994898168">
+    <div id='331193544580042051572842923669994898168' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Progesterone Shields Organs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"All of the organs affected by brain injury--kidneys, lungs, intestine, heart, liver, blood vessels, thymus, bones and bone marrow, endocrine glands--are protected by progesterone."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('331193544580042051572842923669994898168')">Upvote</button>
+          <span class="upvote-counter" id="331193544580042051572842923669994898168-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="123205192440775188766444067083948112132">
+    <div id='123205192440775188766444067083948112132' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Intestinal Stress Effects Overlooked</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"While the effects of stress on the intestine have been recognized since Hans Selye described the general adaptation syndrome (with intestinal bleeding as an early sign of stress), that hasnt been taken into account in any of the large brain trauma or stroke studies."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('123205192440775188766444067083948112132')">Upvote</button>
+          <span class="upvote-counter" id="123205192440775188766444067083948112132-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="72844644399390948325222130341576794453">
+    <div id='72844644399390948325222130341576794453' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Brain-Inflammation Link to Organs</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The inflammatory, degenerative processes in the brain take a few hours to develop, and during these few hours the stress signals from the brain are causing changes in the intestine that lead to a systemic inflammatory state"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('72844644399390948325222130341576794453')">Upvote</button>
+          <span class="upvote-counter" id="72844644399390948325222130341576794453-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="245535961549484354411778515006228809261">
+    <div id='245535961549484354411778515006228809261' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Oral Progesterone: Appropriate Response to Severe Stress</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Giving progesterone orally would seem to be appropriate for any serious stress, since the intestine quickly becomes an amplifier of the inflammatory reactions."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('245535961549484354411778515006228809261')">Upvote</button>
+          <span class="upvote-counter" id="245535961549484354411778515006228809261-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="253427720576129224559196734110982972388">
+    <div id='253427720576129224559196734110982972388' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Glucose&#39;s Protective Role in Intestinal Health During Stress</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Intense or prolonged stress injures the intestine, damaging its barrier function, and allowing bacterial toxins, especially endotoxin, to be absorbed into the blood stream. Glucose is the critical factor in protection of the intestinal epithelium during stress"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('253427720576129224559196734110982972388')">Upvote</button>
+          <span class="upvote-counter" id="253427720576129224559196734110982972388-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="31362194513752899322541601260607836760">
+    <div id='31362194513752899322541601260607836760' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Endotoxin&#39;s Role in Activating Inflammatory Processes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The endotoxin, lipopolysaccharide, has a general excitatory effect effect that activates cell inflammatory processes and damages energy production, with the mediation of cell products such as nitric oxide, carbon monoxide, serotonin, histamine, prostaglandins, estrogens, and various cytokines (interleukins and tumor necrosis factor,TNF). Some of these substances enter the blood stream from the intestine, others are produced elsewhere in the body, but some are produced in the brain itself, when endotoxin is absorbed into the brain"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('31362194513752899322541601260607836760')">Upvote</button>
+          <span class="upvote-counter" id="31362194513752899322541601260607836760-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="214227501779280950596679209615982129116">
+    <div id='214227501779280950596679209615982129116' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Stress and Endotoxin: Inflammatory Reactions and Aromatase Activation</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Endotoxin absorbed from the intestine during stress promotes many inflammatory reactions, and activates aromatase"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('214227501779280950596679209615982129116')">Upvote</button>
+          <span class="upvote-counter" id="214227501779280950596679209615982129116-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="246094207388171874343009489208522152445">
+    <div id='246094207388171874343009489208522152445' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Harmful Substances in Leaves Impeding Nutrient Digestion</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Leaves contain many substances that can be harmful and that interfere with the digestion of protein and other nutrients, for example tannins and polyunsaturated fatty acids."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('246094207388171874343009489208522152445')">Upvote</button>
+          <span class="upvote-counter" id="246094207388171874343009489208522152445-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="286874809780857063939812940477966984822">
+    <div id='286874809780857063939812940477966984822' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Blood and Liver&#39;s Buffering Role in Nutrient Transport</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"The blood and the liver act as a buffer between the intestine and the various specialized tissues and organs, with the serum albumin having a major function in binding and transporting a variety of nutrients and potential toxins."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('286874809780857063939812940477966984822')">Upvote</button>
+          <span class="upvote-counter" id="286874809780857063939812940477966984822-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="58555223025859747474808796812370512555">
+    <div id='58555223025859747474808796812370512555' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Digestive Benefits and Protective Components of Milk</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"its functions begin in the digestive system, with an instructive and supportive action, preparing the intestine’s defenses against the environment. The plant substances that are destroyed in the rumen—tannins, lignin, and PUFA—are cumulatively toxic to the intestine. Besides being nearly free of these, milk contains substances that promote the absorption of essential nutrients, though it might be better to think of it as providing nutrients without things that injure the intestine and interfere with the absorption of nutrients."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('58555223025859747474808796812370512555')">Upvote</button>
+          <span class="upvote-counter" id="58555223025859747474808796812370512555-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="67733942502424165491379894102893285002">
+    <div id='67733942502424165491379894102893285002' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Slow Food Digestion Promotes Intestinal Bacterial Growth</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When a food isn’t quickly digested by the animal, it supports the growth of bacteria in the intestine."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('67733942502424165491379894102893285002')">Upvote</button>
+          <span class="upvote-counter" id="67733942502424165491379894102893285002-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -269,9 +291,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

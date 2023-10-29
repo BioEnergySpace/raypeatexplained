@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="en-us"
+  dir="ltr">
+
 <head>
   <head>
     <script defer src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
@@ -31,7 +33,9 @@
 
     
     <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
-
+    
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
     <style>
          
@@ -56,10 +60,12 @@
 
 </head>
 </head>
+
 <body>
-  
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <header class="sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +82,8 @@
         </div>
       </nav>
 
-    </header>
-    <div class="container-fluid"> 
+  </header>
+  <div class="container-fluid">
     <main>
       
 
@@ -89,6 +95,8 @@
   
   
   <div class="search-box">
+    <button class="btn btn-primary" id="sort-by-popularity">Sort by popularity</button>
+
     <input type="text" id="quoteSearch" placeholder="Search quotes...">
   </div>
 
@@ -96,146 +104,159 @@
 
   
 
+
   <div id="quotesContainer"> 
   <p>
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="281963043649008345269444508773835865325">
+    <div id='281963043649008345269444508773835865325' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Daily Skin Washing Disrupts Endocrine Function</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Just washing the skin with pure soap alters the skins endocrine function for days. and doing it every day is an endocrine disrupter, even if there are no toxic additives in the soap."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
+        <button class="upvote-button" onclick="upvote('281963043649008345269444508773835865325')">Upvote</button>
+          <span class="upvote-counter" id="281963043649008345269444508773835865325-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="299040649957245757207740984273492345704">
+    <div id='299040649957245757207740984273492345704' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Cortisone&#39;s Limitations Without Addressing Underlying Causes</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Although cortisone supplementation can help in a great variety of stress-related diseases, no cure will take place unless the basic cause is discovered. Besides the thyroid, the other class of adaptive hormones which are often out of balance in the diseases of stress, is the group of hormones produced mainly by the gonads: the reproductive hormones."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('299040649957245757207740984273492345704')">Upvote</button>
+          <span class="upvote-counter" id="299040649957245757207740984273492345704-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="282397248465972268080444892670312180958">
+    <div id='282397248465972268080444892670312180958' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Oxygen Levels in Venous Blood During Shock</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"venous blood in shock is likely to be bright red, showing that no oxygen was extracted by the tissues."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('282397248465972268080444892670312180958')">Upvote</button>
+          <span class="upvote-counter" id="282397248465972268080444892670312180958-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="303845626286259870142605224030542485144">
+    <div id='303845626286259870142605224030542485144' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">ApoE4 and Alzheimer&#39;s Disease Risk</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"people with an abnormal lipoprotein, apoE4, are more likely to develop Alzheimers disease, and that abnormal protein is known to cause increased production of NO ("</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('303845626286259870142605224030542485144')">Upvote</button>
+          <span class="upvote-counter" id="303845626286259870142605224030542485144-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="224730330438480244841664061367543236295">
+    <div id='224730330438480244841664061367543236295' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Distinction Between Meaningful Signals and Noise</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Meaning, our intention, has extension through time, while noise has no extension through time. The continuous gradations allow the signal to be distinguished from the noise."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2018 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('224730330438480244841664061367543236295')">Upvote</button>
+          <span class="upvote-counter" id="224730330438480244841664061367543236295-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="95960364600967475035702335055275931705">
+    <div id='95960364600967475035702335055275931705' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Electronic Resonance in Therapeutic Methods</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When Koch used the idea of electronic resonance within molecules, and between molecules, and in cells and organisms, to describe his therapeutic method, most physicians had no idea of what he was talking about."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2016  - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('95960364600967475035702335055275931705')">Upvote</button>
+          <span class="upvote-counter" id="95960364600967475035702335055275931705-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="272298272064922766945741044091301504146">
+    <div id='272298272064922766945741044091301504146' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Understanding Empathy Deficit as Mind Blindness</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"I always understood that my professors, and a large proportion of the medical and scientific professions, suffered from some sort of mental defect, but I didn’t have a name for it. Now I understand that it is a form of autism, mind blindness. Without a recognition of another’s mind, there can be no empathy."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
+        <button class="upvote-button" onclick="upvote('272298272064922766945741044091301504146')">Upvote</button>
+          <span class="upvote-counter" id="272298272064922766945741044091301504146-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="240148293005936092182838993133363392046">
+    <div id='240148293005936092182838993133363392046' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">TNF, Interferon, and Estrogen in Early Embryo Development</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"In the early embryo, where there are no pathogens, TNF and interferon are present, acting as regulators of cell development and differentiation (Li, et al., 2014). Estrogen participates in the embryonic definition of the dorso-ventral polarity (Carroll, et al.,, 2014). In the absence of pathogens, these signals of inflammation are morphogens, links in the organismic field."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('240148293005936092182838993133363392046')">Upvote</button>
+          <span class="upvote-counter" id="240148293005936092182838993133363392046-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="246687715899705464623233075904473928189">
+    <div id='246687715899705464623233075904473928189' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Sterile Inflammation and Field Integrity</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"When the organism is injured, the system’s morphogens are called into action; if no foreign organism is responsible for the injury, the reaction is called sterile inflammation. In a healthy young organism, the repairs are made to restore the field’s integrity,"</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('246687715899705464623233075904473928189')">Upvote</button>
+          <span class="upvote-counter" id="246687715899705464623233075904473928189-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="334976689876384107919729670825934427026">
+    <div id='334976689876384107919729670825934427026' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Chronic Inflammation and Degeneration in Resource-Limited Organisms</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"if the organism lacks the necessary resources of substance and energy, the distortion of the field persists, potentially aggravating the deficiencies, leading to a state of chronic inflammation and degeneration. When there is no injury, the same signals guide the continuing processes of renewal."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2016 - Ray Peat&#39;s Newsletter </p>
+        <button class="upvote-button" onclick="upvote('334976689876384107919729670825934427026')">Upvote</button>
+          <span class="upvote-counter" id="334976689876384107919729670825934427026-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="298749890633745768965443167284858119901">
+    <div id='298749890633745768965443167284858119901' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Cultural Acceptance of Suffering as Strengthening Practice</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Looking at the larger culture of western civilization, mortification of the flesh for the good of the soul might be a relevant context for these persistent attitudes in medicine and biology. Athletes are told no pain, no gain, and many people are accepting the idea that suffering toughens you in general ways—fasting, cold showers, jogging, are said to improve immunity and delay aging."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('298749890633745768965443167284858119901')">Upvote</button>
+          <span class="upvote-counter" id="298749890633745768965443167284858119901-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
 </div>
 
 
-
-<div class="quote">
-    <div class="quote-container" style="margin: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+<div class="quote"  data-upvotes="0" data-quote-id="4516814236048306435994787650200805321">
+    <div id='4516814236048306435994787650200805321' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Questioning Neodarwinism Through Hormetic Toxin Analysis</b>
         <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"If toxins such as CO and NO are beneficial, hormetically, when they occur in city air, then obviously they must be very beneficial when they are produced in the body by enzymes, which evolved through the natural selection of things that supported survival—there is a clear Panglossian aspect to neodarwinism, everything exists because of its fitness."</p>
         <p style="font-size: 16px; text-align: right; color: #777;">- November 2017 - Ray Peat&#39;s Newsletter</p>
+        <button class="upvote-button" onclick="upvote('4516814236048306435994787650200805321')">Upvote</button>
+          <span class="upvote-counter" id="4516814236048306435994787650200805321-count">0</span> upvotes
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -257,9 +278,116 @@
   
   
   <script src="../js/bundle.min.js" defer></script>
-      <script src="../js/main.a67c3d6c89983b8253a44e8745570097998c8dba7a5898e0591072886eebaa29.js" integrity="sha256-pnw9bImYO4JTpE6HRVcAl5mMjbp6WJjgWRByiG7rqik=" crossorigin="anonymous"></script>
+      <script src="../js/main.72ff2c9a3c5e45ad04585ba7af4c027495715c5b934db26bc841f639b71a0912.js" integrity="sha256-cv8smjxeRa0EWFunr0wCdJVxXFuTTbJryEH2ObcaCRI=" crossorigin="anonymous"></script>
 </footer>
     </footer>
   </div>
+
+  <script defer type="module">
+    
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
+      authDomain: "ray-peat-explained.firebaseapp.com",
+      projectId: "ray-peat-explained",
+      storageBucket: "ray-peat-explained.appspot.com",
+      messagingSenderId: "791071522728",
+      appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
+    };
+  
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    
+    function setUpQuoteListener(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+  
+      onSnapshot(quoteRef, (docSnapshot) => {
+        const upvotesSpan = document.getElementById(`${quoteId}-count`);
+        if (docSnapshot.exists()) {
+          upvotesSpan.textContent = docSnapshot.data().upvotes;
+        } else {
+          
+          setDoc(quoteRef, { upvotes: 0 })
+            .then(() => { upvotesSpan.textContent = "0"; })
+            .catch((error) => {
+              console.error("Error creating document: ", error);
+            });
+        }
+      });
+    }
+  
+    
+    function upvote(quoteId) {
+      const quoteRef = doc(db, "quotes", quoteId);
+      
+      
+      updateDoc(quoteRef, {
+        upvotes: increment(1)
+      }).catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
+    
+    window.upvote = upvote;
+  
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const quoteContainers = document.querySelectorAll('.quote-container');
+  
+      
+      quoteContainers.forEach(container => {
+        const quoteId = container.id;
+        setUpQuoteListener(quoteId);
+      });
+    });
+
+    document.getElementById("sort-by-popularity").addEventListener('click', async () => {
+      try {
+        
+        const querySnapshot = await getDocs(collection(db, 'quotes'));
+        const upvotesMap = new Map();  
+        
+        querySnapshot.forEach(doc => {
+          
+          upvotesMap.set(doc.id, doc.data().upvotes);
+        });
+  
+        
+        const quoteElems = document.querySelectorAll('.quote');
+        
+        
+        quoteElems.forEach(quoteElem => {
+          const quoteId = quoteElem.getAttribute('data-quote-id');
+          const upvotes = upvotesMap.get(quoteId) || 0; 
+          quoteElem.setAttribute('data-upvotes', upvotes);
+        });
+  
+        
+        const quoteArray = Array.from(quoteElems);
+        quoteArray.sort((a, b) => {
+          return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
+        });
+  
+        
+        const quotesContainer = document.getElementById('quotesContainer');
+        quotesContainer.innerHTML = ''; 
+  
+        
+        quoteArray.forEach(quote => {
+          quotesContainer.appendChild(quote);
+        });
+      } catch (err) {
+        console.error('Error fetching upvotes: ', err);
+      }
+    });
+  </script>
+
 </body>
+
 </html>
