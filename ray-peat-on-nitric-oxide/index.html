@@ -286,8 +286,10 @@
   <script defer type="module">
     
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
-    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
-  
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, getDocs, collection, serverTimestamp, addDoc } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js';
+    import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js';
+
+
     const firebaseConfig = {
       apiKey: "AIzaSyBNTOHPQHCasjzKwje2P78-q6p1hsXQkW4",
       authDomain: "ray-peat-explained.firebaseapp.com",
@@ -296,15 +298,46 @@
       messagingSenderId: "791071522728",
       appId: "1:791071522728:web:3df2e0f7e4c0b66d4a679d"
     };
-  
-  
+
+
     const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
     const db = getFirestore(app);
-  
+
+    async function signInAnonymouslyAndUpvote(upvote_id) {
+      try {
+        
+        const userCredential = await signInAnonymously(auth);
+        const user = userCredential.user;
+
+        
+        if (user) {
+          console.log(`User is signed in anonymously with uid: ${user.uid}`);
+
+          
+          const upvoteData = {
+            anonymousUserId: user.uid,
+            upvote_id: upvote_id,
+            timeOfUpvote: serverTimestamp(),
+          };
+
+          
+          const docRef = await addDoc(collection(db, "upvotes"), upvoteData);
+          console.log("Document written with ID: ", docRef.id);
+        } else {
+          console.log("User sign-in failed");
+        }
+      } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(`Error code: ${errorCode}, Message: ${errorMessage}`);
+      }
+    }
+
     
     function setUpQuoteListener(quoteId) {
       const quoteRef = doc(db, "quotes", quoteId);
-  
+
       onSnapshot(quoteRef, (docSnapshot) => {
         const upvotesSpan = document.getElementById(`${quoteId}-count`);
         if (docSnapshot.exists()) {
@@ -319,27 +352,32 @@
         }
       });
     }
-  
+
     
     function upvote(quoteId) {
       const quoteRef = doc(db, "quotes", quoteId);
-      
+
       
       updateDoc(quoteRef, {
         upvotes: increment(1)
       }).catch((error) => {
         console.error("Error updating document: ", error);
       });
+
+      signInAnonymouslyAndUpvote(quoteId).catch((error) => {
+        console.error("Error updating document II: ", error);
+      });
+
     }
-  
+
     
     window.upvote = upvote;
-  
+
     
     document.addEventListener('DOMContentLoaded', () => {
       
       const quoteContainers = document.querySelectorAll('.quote-container');
-  
+
       
       quoteContainers.forEach(container => {
         const quoteId = container.id;
@@ -352,32 +390,32 @@
         
         const querySnapshot = await getDocs(collection(db, 'quotes'));
         const upvotesMap = new Map();  
-        
+
         querySnapshot.forEach(doc => {
           
           upvotesMap.set(doc.id, doc.data().upvotes);
         });
-  
+
         
         const quoteElems = document.querySelectorAll('.quote');
-        
+
         
         quoteElems.forEach(quoteElem => {
           const quoteId = quoteElem.getAttribute('data-quote-id');
           const upvotes = upvotesMap.get(quoteId) || 0; 
           quoteElem.setAttribute('data-upvotes', upvotes);
         });
-  
+
         
         const quoteArray = Array.from(quoteElems);
         quoteArray.sort((a, b) => {
           return b.getAttribute('data-upvotes') - a.getAttribute('data-upvotes');
         });
-  
+
         
         const quotesContainer = document.getElementById('quotesContainer');
         quotesContainer.innerHTML = ''; 
-  
+
         
         quoteArray.forEach(quote => {
           quotesContainer.appendChild(quote);
@@ -386,6 +424,8 @@
         console.error('Error fetching upvotes: ', err);
       }
     });
+
+    
   </script>
 
 </body>
