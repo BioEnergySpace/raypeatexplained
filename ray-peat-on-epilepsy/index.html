@@ -64,7 +64,7 @@
 <body>
 
 
-  <header class="sticky-top">
+  <header class="">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
@@ -114,6 +114,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('87815523909182031555141277441937734454')">Upvote</button>
           <span class="upvote-counter" id="87815523909182031555141277441937734454-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('87815523909182031555141277441937734454');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -127,6 +128,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2017 - Ray Peat&#39;s Newsletter</p>
         <button class="upvote-button" onclick="upvote('161983148097654468792610786064236510092')">Upvote</button>
           <span class="upvote-counter" id="161983148097654468792610786064236510092-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('161983148097654468792610786064236510092');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -295,6 +297,44 @@
       }
     });
 
+    window.copyLinkToClipboard = function copyLinkToClipboard(id) {
+      
+      const urlWithHash = `${window.location.href.split('#')[0]}#${id}`;
+    
+      
+      navigator.clipboard.writeText(urlWithHash).then(() => {
+        
+      }).catch(err => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+
+    window.highlightDiv=  function highlightDiv(hash) {
+      
+      document.querySelectorAll('.highlight-quote').forEach((el) => {
+        el.classList.remove('highlight-quote');
+      });
+    
+      
+      if (hash !== '') {
+        const id = hash.replace('#', '');
+        const divToHighlight = document.getElementById(id);
+        if (divToHighlight) {
+          divToHighlight.classList.add('highlight-quote');
+          console.log("Quote selected")
+    
+          
+          divToHighlight.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+    
+    
+    window.addEventListener('hashchange', () => window.highlightDiv(window.location.hash));
+    window.addEventListener('DOMContentLoaded', () => window.highlightDiv(window.location.hash));
     
   </script>
 

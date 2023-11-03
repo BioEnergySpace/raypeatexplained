@@ -64,7 +64,7 @@
 <body>
 
 
-  <header class="sticky-top">
+  <header class="">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
@@ -107,6 +107,34 @@
 
   <div id="quotesContainer"> 
   <p>
+<div class="quote"  data-upvotes="0" data-quote-id="69925361793376381609151745453834531764">
+    <div id='69925361793376381609151745453834531764' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Denckla&#39;s Theory of a Pituitary Death Hormone in Aging</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"W. Donner Denckla suggested that there is a death hormone in the pituitary gland, which appears at puberty and initiates the process of aging by suppressing the use of oxygen. He maintained that merely providing thyroid supplement wouldnt protect against it, and that it was a distinct hormone, although it tended to appear in tissue extracts in association with prolactin and growth hormone. Although I think there is still a lot to be learned about the pituitary hormones, I dont think Denckla discovered anything except puberty."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('69925361793376381609151745453834531764')">Upvote</button>
+          <span class="upvote-counter" id="69925361793376381609151745453834531764-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('69925361793376381609151745453834531764');">Copy Link to Quote</button>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+</div>
+
+
+<div class="quote"  data-upvotes="0" data-quote-id="308700742355343893811900471340173122104">
+    <div id='308700742355343893811900471340173122104' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Estrogen and Prolactin&#39;s Role in Respiratory Interference</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Estrogen and prolactin do many things to interfere with respiration."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
+        <button class="upvote-button" onclick="upvote('308700742355343893811900471340173122104')">Upvote</button>
+          <span class="upvote-counter" id="308700742355343893811900471340173122104-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('308700742355343893811900471340173122104');">Copy Link to Quote</button>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+</div>
+
+
 <div class="quote"  data-upvotes="0" data-quote-id="172960422393208749774310178737706177450">
     <div id='172960422393208749774310178737706177450' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
         <b style="font-style: italic; color: #333;">Estrogen, Serotonin, and Water Retention Cycle</b>
@@ -114,6 +142,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('172960422393208749774310178737706177450')">Upvote</button>
           <span class="upvote-counter" id="172960422393208749774310178737706177450-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('172960422393208749774310178737706177450');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -127,6 +156,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('51016908994078788932533248255232564926')">Upvote</button>
           <span class="upvote-counter" id="51016908994078788932533248255232564926-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('51016908994078788932533248255232564926');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -295,6 +325,44 @@
       }
     });
 
+    window.copyLinkToClipboard = function copyLinkToClipboard(id) {
+      
+      const urlWithHash = `${window.location.href.split('#')[0]}#${id}`;
+    
+      
+      navigator.clipboard.writeText(urlWithHash).then(() => {
+        
+      }).catch(err => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+
+    window.highlightDiv=  function highlightDiv(hash) {
+      
+      document.querySelectorAll('.highlight-quote').forEach((el) => {
+        el.classList.remove('highlight-quote');
+      });
+    
+      
+      if (hash !== '') {
+        const id = hash.replace('#', '');
+        const divToHighlight = document.getElementById(id);
+        if (divToHighlight) {
+          divToHighlight.classList.add('highlight-quote');
+          console.log("Quote selected")
+    
+          
+          divToHighlight.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+    
+    
+    window.addEventListener('hashchange', () => window.highlightDiv(window.location.hash));
+    window.addEventListener('DOMContentLoaded', () => window.highlightDiv(window.location.hash));
     
   </script>
 

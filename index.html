@@ -65,7 +65,7 @@
 <body>
 
 
-  <header class="sticky-top">
+  <header class="">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
@@ -192,6 +192,15 @@
             
             
                     
+                    <div class="topic" onclick="location.href='\/ray-peat-on-aging\/';">
+                        
+                        
+                        <a href="./ray-peat-on-aging/" style="text-transform: capitalize;">Ray Peat on aging</a>
+                    </div>
+              
+            
+            
+                    
                     <div class="topic" onclick="location.href='\/ray-peat-on-ammonia\/';">
                         
                         
@@ -232,6 +241,15 @@
                         
                         
                         <a href="./ray-peat-on-biological-energy/" style="text-transform: capitalize;">Ray Peat on biological energy</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-calcium\/';">
+                        
+                        
+                        <a href="./ray-peat-on-calcium/" style="text-transform: capitalize;">Ray Peat on calcium</a>
                     </div>
               
             
@@ -300,6 +318,15 @@
             
             
                     
+                    <div class="topic" onclick="location.href='\/ray-peat-on-development\/';">
+                        
+                        
+                        <a href="./ray-peat-on-development/" style="text-transform: capitalize;">Ray Peat on development</a>
+                    </div>
+              
+            
+            
+                    
                     <div class="topic" onclick="location.href='\/ray-peat-on-dhea\/';">
                         
                         
@@ -345,6 +372,13 @@
             
             
                     
+                    <div class="topic" onclick="location.href='\/ray-peat-on-free-fatty-acids\/';">
+                        
+                        
+                        <a href="./ray-peat-on-free-fatty-acids/" style="text-transform: capitalize;">Ray Peat on free fatty acids</a>
+                    </div>
+              
+            
             
                     
             
@@ -394,6 +428,31 @@
             
             
                     
+                    <div class="topic" onclick="location.href='\/ray-peat-on-learned-helplessness\/';">
+                        
+                        
+                        <a href="./ray-peat-on-learned-helplessness/" style="text-transform: capitalize;">Ray Peat on learned helplessness</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-magnesium\/';">
+                        
+                        
+                        <a href="./ray-peat-on-magnesium/" style="text-transform: capitalize;">Ray Peat on magnesium</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-menopause\/';">
+                        
+                        
+                        <a href="./ray-peat-on-menopause/" style="text-transform: capitalize;">Ray Peat on menopause</a>
+                    </div>
+              
+            
             
                     
                     <div class="topic" onclick="location.href='\/ray-peat-on-metabolism\/';">
@@ -533,6 +592,15 @@
             
             
                     
+                    <div class="topic" onclick="location.href='\/ray-peat-on-salt-and-sodium\/';">
+                        
+                        
+                        <a href="./ray-peat-on-salt-and-sodium/" style="text-transform: capitalize;">Ray Peat on salt and sodium</a>
+                    </div>
+              
+            
+            
+                    
                     <div class="topic" onclick="location.href='\/ray-peat-on-science\/';">
                         
                         
@@ -548,6 +616,15 @@
                         
                         
                         <a href="./ray-peat-on-serotonin/" style="text-transform: capitalize;">Ray Peat on serotonin</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-sleep\/';">
+                        
+                        
+                        <a href="./ray-peat-on-sleep/" style="text-transform: capitalize;">Ray Peat on sleep</a>
                     </div>
               
             
@@ -623,6 +700,35 @@
                     </div>
               
             
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-vitamin-a\/';">
+                        
+                        
+                        <a href="./ray-peat-on-vitamin-a/" style="text-transform: capitalize;">Ray Peat on vitamin A</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-vitamin-d\/';">
+                        
+                        
+                        <a href="./ray-peat-on-vitamin-d/" style="text-transform: capitalize;">Ray Peat on vitamin D</a>
+                    </div>
+              
+            
+            
+                    
+                    <div class="topic" onclick="location.href='\/ray-peat-on-vitamin-e\/';">
+                        
+                        
+                        <a href="./ray-peat-on-vitamin-e/" style="text-transform: capitalize;">Ray Peat on vitamin E</a>
+                    </div>
+              
+            
+            
+                    
             
                     
             
@@ -812,6 +918,44 @@
       }
     });
 
+    window.copyLinkToClipboard = function copyLinkToClipboard(id) {
+      
+      const urlWithHash = `${window.location.href.split('#')[0]}#${id}`;
+    
+      
+      navigator.clipboard.writeText(urlWithHash).then(() => {
+        
+      }).catch(err => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+
+    window.highlightDiv=  function highlightDiv(hash) {
+      
+      document.querySelectorAll('.highlight-quote').forEach((el) => {
+        el.classList.remove('highlight-quote');
+      });
+    
+      
+      if (hash !== '') {
+        const id = hash.replace('#', '');
+        const divToHighlight = document.getElementById(id);
+        if (divToHighlight) {
+          divToHighlight.classList.add('highlight-quote');
+          console.log("Quote selected")
+    
+          
+          divToHighlight.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+    
+    
+    window.addEventListener('hashchange', () => window.highlightDiv(window.location.hash));
+    window.addEventListener('DOMContentLoaded', () => window.highlightDiv(window.location.hash));
     
   </script>
 

@@ -64,7 +64,7 @@
 <body>
 
 
-  <header class="sticky-top">
+  <header class="">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
@@ -114,6 +114,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- Email Response by Ray Peat</p>
         <button class="upvote-button" onclick="upvote('188214795338758617202852080958062460009')">Upvote</button>
           <span class="upvote-counter" id="188214795338758617202852080958062460009-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('188214795338758617202852080958062460009');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -127,6 +128,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- Generative Energy  Restoring The Wholeness Of Life</p>
         <button class="upvote-button" onclick="upvote('270496815310487993520852896773451809396')">Upvote</button>
           <span class="upvote-counter" id="270496815310487993520852896773451809396-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('270496815310487993520852896773451809396');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -140,6 +142,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('105918775594044549782310595825857279709')">Upvote</button>
           <span class="upvote-counter" id="105918775594044549782310595825857279709-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('105918775594044549782310595825857279709');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -153,6 +156,21 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- May 2018 - Ray Peats Newsletter</p>
         <button class="upvote-button" onclick="upvote('294114779160778319264856056736336403396')">Upvote</button>
           <span class="upvote-counter" id="294114779160778319264856056736336403396-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('294114779160778319264856056736336403396');">Copy Link to Quote</button>
+    </div>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+</div>
+
+
+<div class="quote"  data-upvotes="0" data-quote-id="258313676363389803377902750697186183591">
+    <div id='258313676363389803377902750697186183591' class="quote-container" style="margin: 10px; padding: 5px; background-color: #f9f9f9; border-left: 4px solid #5a5a5a;">
+        <b style="font-style: italic; color: #333;">Lifestyle Choices to Slow Aging and Enhance Longevity</b>
+        <p style="margin-bottom: 10px; font-size: 18px; color: #555;">"Altitude and a milk based diet are obviously two important thermogenic factors that slow the accumulation of harmful adaptations, but there are many other controllable factors that could extend longevity even more. Reducing inflammatory factors is important, and personal choices can make a big difference, for example choosing easily digestible foods to reduce endotoxin, avoiding the polyunsaturated fatty acids that interfere with cell respiration and form inflammatory prostaglandins, avoiding antioxidant supplements that create a reductive excess, and choosing foods that contain antiinflammatory-thermogenic compounds, such as citrus fruits with their high content of flavonoids that support cell respiratory functions."</p>
+        <p style="font-size: 16px; text-align: right; color: #777;">- November 2020 - Ray Peat&#39;s Newsletter  </p>
+        <button class="upvote-button" onclick="upvote('258313676363389803377902750697186183591')">Upvote</button>
+          <span class="upvote-counter" id="258313676363389803377902750697186183591-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('258313676363389803377902750697186183591');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -321,6 +339,44 @@
       }
     });
 
+    window.copyLinkToClipboard = function copyLinkToClipboard(id) {
+      
+      const urlWithHash = `${window.location.href.split('#')[0]}#${id}`;
+    
+      
+      navigator.clipboard.writeText(urlWithHash).then(() => {
+        
+      }).catch(err => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+
+    window.highlightDiv=  function highlightDiv(hash) {
+      
+      document.querySelectorAll('.highlight-quote').forEach((el) => {
+        el.classList.remove('highlight-quote');
+      });
+    
+      
+      if (hash !== '') {
+        const id = hash.replace('#', '');
+        const divToHighlight = document.getElementById(id);
+        if (divToHighlight) {
+          divToHighlight.classList.add('highlight-quote');
+          console.log("Quote selected")
+    
+          
+          divToHighlight.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+    
+    
+    window.addEventListener('hashchange', () => window.highlightDiv(window.location.hash));
+    window.addEventListener('DOMContentLoaded', () => window.highlightDiv(window.location.hash));
     
   </script>
 

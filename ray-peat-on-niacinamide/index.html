@@ -64,7 +64,7 @@
 <body>
 
 
-  <header class="sticky-top">
+  <header class="">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="https://raypeatexplained.com/">Ray Peat Explained</a>
@@ -114,6 +114,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2016 - Ray Peat&#39;s Newsletter</p>
         <button class="upvote-button" onclick="upvote('301309985371683882043873699877126115981')">Upvote</button>
           <span class="upvote-counter" id="301309985371683882043873699877126115981-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('301309985371683882043873699877126115981');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -127,6 +128,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- January 2017 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('116741108474215009858680136957761515662')">Upvote</button>
           <span class="upvote-counter" id="116741108474215009858680136957761515662-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('116741108474215009858680136957761515662');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -140,6 +142,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- July 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('3329692149773583647946941746684839687')">Upvote</button>
           <span class="upvote-counter" id="3329692149773583647946941746684839687-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('3329692149773583647946941746684839687');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -153,6 +156,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2016 - Ray Peat&#39;s Newsletter</p>
         <button class="upvote-button" onclick="upvote('56677687712885746756803687941841888198')">Upvote</button>
           <span class="upvote-counter" id="56677687712885746756803687941841888198-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('56677687712885746756803687941841888198');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -166,6 +170,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- March 2017 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('311092137000151989020935140491842655505')">Upvote</button>
           <span class="upvote-counter" id="311092137000151989020935140491842655505-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('311092137000151989020935140491842655505');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -179,6 +184,7 @@
         <p style="font-size: 16px; text-align: right; color: #777;">- September 2019 - Ray Peat&#39;s Newsletter </p>
         <button class="upvote-button" onclick="upvote('189360614664242637238971974246852656482')">Upvote</button>
           <span class="upvote-counter" id="189360614664242637238971974246852656482-count">0</span> upvotes
+          <button class="btn btn-primary" onclick="copyLinkToClipboard('189360614664242637238971974246852656482');">Copy Link to Quote</button>
     </div>
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
@@ -347,6 +353,44 @@
       }
     });
 
+    window.copyLinkToClipboard = function copyLinkToClipboard(id) {
+      
+      const urlWithHash = `${window.location.href.split('#')[0]}#${id}`;
+    
+      
+      navigator.clipboard.writeText(urlWithHash).then(() => {
+        
+      }).catch(err => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+
+    window.highlightDiv=  function highlightDiv(hash) {
+      
+      document.querySelectorAll('.highlight-quote').forEach((el) => {
+        el.classList.remove('highlight-quote');
+      });
+    
+      
+      if (hash !== '') {
+        const id = hash.replace('#', '');
+        const divToHighlight = document.getElementById(id);
+        if (divToHighlight) {
+          divToHighlight.classList.add('highlight-quote');
+          console.log("Quote selected")
+    
+          
+          divToHighlight.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }
+    
+    
+    window.addEventListener('hashchange', () => window.highlightDiv(window.location.hash));
+    window.addEventListener('DOMContentLoaded', () => window.highlightDiv(window.location.hash));
     
   </script>
 
